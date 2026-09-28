@@ -216,7 +216,7 @@
       color: #0D4A2F;
     }
     .symptom-option input:focus-visible + .symptom-option__body,
-    .symptom-check button:focus-visible,
+    .symptom-check a.btn-lime:focus-visible,
     .context-cta a:focus-visible {
       outline: 3px solid #F5A623;
       outline-offset: 3px;
@@ -237,6 +237,13 @@
     }
     .symptom-check__action .btn-lime {
       white-space: nowrap;
+      text-align: center;
+    }
+    .symptom-check__diy {
+      margin: 14px 0 0 !important;
+      color: #374151 !important;
+      font-size: 0.92rem !important;
+      line-height: 1.5;
     }
     .context-cta {
       margin: 30px 0;
@@ -494,10 +501,9 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
 
   <p>Sab kuch seedha, honest, aur Roman Urdu mein - jaise SafaiKaro ka tareeqa hai.</p>
 
-  <form class="symptom-check" id="symptomCheck" action="https://wa.me/923308652035" method="get" target="_blank">
-    <input type="hidden" name="text" value="Hi SafaiKaro, mujhe khatmal ke signs check karwane hain.">
+  <div class="symptom-check" id="symptomCheck">
     <h2>Kya Yeh Khatmal Ke Signs Hain?</h2>
-    <p class="symptom-check__intro">Jo signs aapne dekhe hain select karein. WhatsApp message mein woh khud add ho jayenge.</p>
+    <p class="symptom-check__intro">Jo signs aapne dekhe hain select karein. WhatsApp message mein woh khud add ho jayenge, phir neeche ka button dabayein.</p>
     <div class="symptom-options">
       <label class="symptom-option">
         <input type="checkbox" name="symptom" value="Subah line ya cluster mein red bites">
@@ -518,12 +524,10 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
     </div>
     <div class="symptom-check__action">
       <p class="symptom-check__status" id="symptomStatus" aria-live="polite">Sign select karna optional hai. Photo WhatsApp par bhej sakte hain.</p>
-      <button class="btn-lime" type="submit">Signs WhatsApp Par Bhejein</button>
+      <a class="btn-lime" id="symptomSend" href="https://wa.me/923308652035?text=Hi%20SafaiKaro%2C%20mujhe%20khatmal%20ke%20signs%20check%20karwane%20hain.%20Please%20batayein%20next%20step%20kya%20hona%20chahiye." target="_blank" rel="noopener" data-cta="symptom-checker">Signs WhatsApp Par Bhejein</a>
     </div>
-    <noscript>
-      <p class="no-js-note"><a href="https://wa.me/923308652035?text=Hi%20SafaiKaro%2C%20mujhe%20khatmal%20ke%20signs%20check%20karwane%20hain.">Seedha WhatsApp par signs share karein.</a></p>
-    </noscript>
-  </form>
+    <p class="symptom-check__diy">Market spray ke baad bhi signs hain? Message mein spray ki date aur affected kamray likh dein, hum inspection slot usi chat mein confirm karte hain. Treatment <span data-price="bedbug-s">Rs 11,000</span> se, 90-day guarantee.</p>
+  </div>
 
   <!-- SECTION 1: WHAT ARE KHATMAL -->
   <h2>Khatmal Kya Hote Hain? — کھٹمل (Bed Bugs in Urdu)</h2>
@@ -873,52 +877,36 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
 
   var symptomForm = document.getElementById('symptomCheck');
   var symptomStatus = document.getElementById('symptomStatus');
+  var symptomSend = document.getElementById('symptomSend');
+
+  // The send button is a real WhatsApp link (tracked by the sitewide listener in
+  // prices.js as whatsapp_click with cta=symptom-checker). Ticking a sign rewrites
+  // its href, so the prefill carries the ticked signs and no synthetic click is needed.
+  function updateSymptomLink() {
+    var symptoms = Array.from(symptomForm.querySelectorAll('input[name="symptom"]:checked')).map(function (input) {
+      return input.value;
+    });
+    var message = symptoms.length
+      ? 'Hi SafaiKaro, khatmal ke signs: ' + symptoms.join('; ') + '. Please batayein next step kya hona chahiye.'
+      : 'Hi SafaiKaro, mujhe khatmal ke signs check karwane hain. Please batayein next step kya hona chahiye.';
+    symptomSend.href = 'https://wa.me/923308652035?text=' + encodeURIComponent(message);
+    return symptoms.length;
+  }
 
   symptomForm.querySelectorAll('input[name="symptom"]').forEach(function (input) {
     input.addEventListener('change', function () {
-      var selected = symptomForm.querySelectorAll('input[name="symptom"]:checked');
-      symptomStatus.textContent = selected.length
-        ? selected.length + ' sign message mein add hoga.'
+      var count = updateSymptomLink();
+      symptomStatus.textContent = count
+        ? count + ' sign message mein add hoga.'
         : 'Sign select karna optional hai. Photo WhatsApp par bhej sakte hain.';
       capture('khatmal_symptom_selected', {
         symptom: input.value,
         selected: input.checked,
-        selected_count: selected.length
+        selected_count: count
       });
     });
   });
-
-  symptomForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    var symptoms = Array.from(symptomForm.querySelectorAll('input[name="symptom"]:checked')).map(function (input) {
-      return input.value;
-    });
-    var message = [
-      'Hi SafaiKaro!',
-      '',
-      '*Khatmal Signs Check*',
-      symptoms.length ? '*Maine yeh signs dekhe:*\n- ' + symptoms.join('\n- ') : '*Signs:* Main photo WhatsApp par share karunga/karungi.',
-      '',
-      'Please batayein next step kya hona chahiye.'
-    ].join('\n');
-    var destination = 'https://wa.me/923308652035?text=' + encodeURIComponent(message);
-    var properties = {
-      path: window.location.pathname,
-      selected_count: symptoms.length,
-      symptoms: symptoms
-    };
-
-    capture('khatmal_symptom_handoff_started', properties, true);
-    var whatsappLink = document.createElement('a');
-    whatsappLink.href = destination;
-    whatsappLink.target = '_blank';
-    whatsappLink.rel = 'noopener';
-    whatsappLink.textContent = 'Signs WhatsApp Par Bhejein';
-    whatsappLink.hidden = true;
-    document.body.appendChild(whatsappLink);
-    whatsappLink.click();
-    whatsappLink.remove();
-  });
+  updateSymptomLink();
 
   document.querySelectorAll('.contextual-khatmal-cta').forEach(function (link) {
     link.addEventListener('click', function () {
