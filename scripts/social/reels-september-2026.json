@@ -1,6 +1,6 @@
 {
   "authorized": true,
-  "authorization": "Owner approved the five commercial carousel Reels (restaurant cockroach, building rodent, restaurant care, service certificate, shop and office) on 29 September 2026 and asked to schedule them to launch. Slots: 30 September to 4 October 2026 at 12:30 pm Asia/Karachi, one per day, Instagram with native Meta music and Facebook with the licensed Bird Watching master.",
+  "authorization": "Owner approved the five commercial carousel Reels (restaurant cockroach, building rodent, restaurant care, service certificate, shop and office) on 29 September 2026 and asked to schedule them to launch. Slots: 30 September to 4 October 2026 at 12:30 pm Asia/Karachi, one per day, Instagram with native Meta music and Facebook with the licensed Bird Watching master. Facebook deliveries for these five were scheduled directly on Meta on 29 September 2026; the workflow publishes Instagram only.",
   "instagram_username": "safaikaro.pk",
   "timezone": "Asia/Karachi",
   "jobs": [
@@ -57,11 +57,7 @@
       "audio_artist": "Danny Peter Wolf",
       "ai_generated": true,
       "video_path": "social-media/c1-restaurant-cockroach-7e0028a1.mp4",
-      "facebook": {
-        "video_path": "social-media/c1-restaurant-cockroach-fb-7dfcebcb.mp4",
-        "sha256": "7dfcebcb908642d7ee5b6523f76a1b648e3d77f5deb91a44a6a31f40678a1614",
-        "caption": "Kitchen mein cockroach nikla aur service chal rahi thi? Hum samajhte hain.\n\nAgreed window mein treatment, follow-up likha hua, aur kaam ka record aapke paas. Ek hi contact.\n\nRestaurant ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi"
-      }
+      "facebook_note": "Facebook reel scheduled directly on Meta on 2026-09-29 (video_reels SCHEDULED); the runner must not post to Facebook for this job."
     },
     {
       "id": "c2-building-rodent",
@@ -80,11 +76,7 @@
       "audio_artist": "Danny Peter Wolf",
       "ai_generated": true,
       "video_path": "social-media/c2-building-rodent-8aee998c.mp4",
-      "facebook": {
-        "video_path": "social-media/c2-building-rodent-fb-aee762be.mp4",
-        "sha256": "aee762be00ccec88af7a798d708e0c6b4353489fede6d843ddb6630eef4d2554",
-        "caption": "Basement mein choohe, seedhiyon par nishaan, tenants ki wohi complaint har hafte?\n\nRodent control aur entry-point repairs ek hi engagement mein. Zone by zone survey, jo band kiya uska record, ek hi contact.\n\nBuilding ke floors, area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #DHAKarachi #CliftonKarachi #PestControlKarachi #BuildingManagement"
-      }
+      "facebook_note": "Facebook reel scheduled directly on Meta on 2026-09-29 (video_reels SCHEDULED); the runner must not post to Facebook for this job."
     },
     {
       "id": "c3-restaurant-care",
@@ -103,11 +95,7 @@
       "audio_artist": "Danny Peter Wolf",
       "ai_generated": true,
       "video_path": "social-media/c3-restaurant-care-f5ccd5be.mp4",
-      "facebook": {
-        "video_path": "social-media/c3-restaurant-care-fb-8c920506.mp4",
-        "sha256": "8c920506359c83a3edf53192d7c6c669cd9d3f0d461a7fca4c9c41395a8f103e",
-        "caption": "Har mahine naya banda dhoondhna, phir se sab samjhana?\n\nRestaurant Care: tay shuda visits, monitoring, har visit ka record, agli date pehle se tay. Ek hi contact.\n\nApne restaurant ka area aur size WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi"
-      }
+      "facebook_note": "Facebook reel scheduled directly on Meta on 2026-09-29 (video_reels SCHEDULED); the runner must not post to Facebook for this job."
     },
     {
       "id": "c4-service-certificate",
@@ -126,11 +114,7 @@
       "audio_artist": "Danny Peter Wolf",
       "ai_generated": true,
       "video_path": "social-media/c4-service-certificate-3814a63e.mp4",
-      "facebook": {
-        "video_path": "social-media/c4-service-certificate-fb-32aa7ae1.mp4",
-        "sha256": "32aa7ae1f632b4c1d982f1978a8d618cc1a7b09b5241d55a866e979e3b5b6076",
-        "caption": "Inspection kal hai aur pest control ka koi kaagaz nahi?\n\nSafaiKaro har job ke baad service certificate deta hai: kya hua, kahan hua, kab hua, kis ne kiya, aur follow-up date. Technician ke notes se banta hai, aapki copy aapke paas.\n\nYeh SafaiKaro ke kaam ka record hai, kisi sarkari idaray ki manzoori nahi.\n\nPremises ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi"
-      }
+      "facebook_note": "Facebook reel scheduled directly on Meta on 2026-09-29 (video_reels SCHEDULED); the runner must not post to Facebook for this job."
     },
     {
       "id": "c5-shop-office",
@@ -149,11 +133,7 @@
       "audio_artist": "Danny Peter Wolf",
       "ai_generated": true,
       "video_path": "social-media/c5-shop-office-10a7da7e.mp4",
-      "facebook": {
-        "video_path": "social-media/c5-shop-office-fb-f0c963c4.mp4",
-        "sha256": "f0c963c498a87dadf662db2161b5759b8b3511f39a751dc30a152fc4246b361f",
-        "caption": "Stockroom mein cheentiyan aur customer ne pehle dekh lein? Nahi.\n\nAgreed slot mein aate hain, opening se pehle kaam khatam, kaam ka record aapke paas, agli date tay.\n\nShop ya office ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #DHAKarachi #CliftonKarachi #PestControlKarachi #ShopOwnersKarachi"
-      }
+      "facebook_note": "Facebook reel scheduled directly on Meta on 2026-09-29 (video_reels SCHEDULED); the runner must not post to Facebook for this job."
     }
   ]
 }
