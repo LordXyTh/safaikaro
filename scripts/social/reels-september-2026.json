@@ -1,6 +1,6 @@
 {
   "authorized": true,
-  "authorization": "Owner reviewed the kitchen Reel and revised natural chai Reel, then explicitly requested: schedule them. Slots: September 13 and 14, 2026 at 12:30 pm Asia/Karachi. Use existing Instagram workflow and native Meta music.",
+  "authorization": "Owner approved the five commercial carousel Reels (restaurant cockroach, building rodent, restaurant care, service certificate, shop and office) on 29 September 2026 and asked to schedule them to launch. Slots: 30 September to 4 October 2026 at 12:30 pm Asia/Karachi, one per day, Instagram with native Meta music and Facebook with the licensed Bird Watching master.",
   "instagram_username": "safaikaro.pk",
   "timezone": "Asia/Karachi",
   "jobs": [
@@ -39,6 +39,121 @@
       "audio_artist": "Danny Peter Wolf",
       "ai_generated": true,
       "video_path": "social-media/chai-natural-reel-v2-bea5f228.mp4"
+    },
+    {
+      "id": "c1-restaurant-cockroach",
+      "platform": "instagram",
+      "format": "reel",
+      "scheduled_at": "2026-09-30T12:30:00+05:00",
+      "video_url": "https://safaikaro.pk/social-media/c1-restaurant-cockroach-7e0028a1.mp4",
+      "sha256": "7e0028a13fa2b89b10dfaef1beb0b64bd62455342cc1e37685b7c081c1404abb",
+      "caption": "Kitchen mein cockroach nikla aur service chal rahi thi? Hum samajhte hain.\n\nAgreed window mein treatment, follow-up likha hua, aur kaam ka record aapke paas. Ek hi contact.\n\nRestaurant ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: +92 330 8652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi",
+      "native_audio": {
+        "audio_id": "1759672808494145",
+        "audio_volume": 80,
+        "video_volume": 20
+      },
+      "audio_title": "Bird Watching",
+      "audio_artist": "Danny Peter Wolf",
+      "ai_generated": true,
+      "video_path": "social-media/c1-restaurant-cockroach-7e0028a1.mp4",
+      "facebook": {
+        "video_path": "social-media/c1-restaurant-cockroach-fb-7dfcebcb.mp4",
+        "sha256": "7dfcebcb908642d7ee5b6523f76a1b648e3d77f5deb91a44a6a31f40678a1614",
+        "caption": "Kitchen mein cockroach nikla aur service chal rahi thi? Hum samajhte hain.\n\nAgreed window mein treatment, follow-up likha hua, aur kaam ka record aapke paas. Ek hi contact.\n\nRestaurant ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi"
+      }
+    },
+    {
+      "id": "c2-building-rodent",
+      "platform": "instagram",
+      "format": "reel",
+      "scheduled_at": "2026-10-01T12:30:00+05:00",
+      "video_url": "https://safaikaro.pk/social-media/c2-building-rodent-8aee998c.mp4",
+      "sha256": "8aee998c380a89e67518b47fabecc5d969943ce53c7db3498cb05b03c3d71cff",
+      "caption": "Basement mein choohe, seedhiyon par nishaan, tenants ki wohi complaint har hafte?\n\nRodent control aur entry-point repairs ek hi engagement mein. Zone by zone survey, jo band kiya uska record, ek hi contact.\n\nBuilding ke floors, area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: +92 330 8652035\n\n#SafaiKaro #Karachi #DHAKarachi #CliftonKarachi #PestControlKarachi #BuildingManagement",
+      "native_audio": {
+        "audio_id": "1759672808494145",
+        "audio_volume": 80,
+        "video_volume": 20
+      },
+      "audio_title": "Bird Watching",
+      "audio_artist": "Danny Peter Wolf",
+      "ai_generated": true,
+      "video_path": "social-media/c2-building-rodent-8aee998c.mp4",
+      "facebook": {
+        "video_path": "social-media/c2-building-rodent-fb-aee762be.mp4",
+        "sha256": "aee762be00ccec88af7a798d708e0c6b4353489fede6d843ddb6630eef4d2554",
+        "caption": "Basement mein choohe, seedhiyon par nishaan, tenants ki wohi complaint har hafte?\n\nRodent control aur entry-point repairs ek hi engagement mein. Zone by zone survey, jo band kiya uska record, ek hi contact.\n\nBuilding ke floors, area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #DHAKarachi #CliftonKarachi #PestControlKarachi #BuildingManagement"
+      }
+    },
+    {
+      "id": "c3-restaurant-care",
+      "platform": "instagram",
+      "format": "reel",
+      "scheduled_at": "2026-10-02T12:30:00+05:00",
+      "video_url": "https://safaikaro.pk/social-media/c3-restaurant-care-f5ccd5be.mp4",
+      "sha256": "f5ccd5be5ffccf1a009a2568bec502ade85725c0dc505efb6a2fd3c3811f6ad8",
+      "caption": "Har mahine naya banda dhoondhna, phir se sab samjhana?\n\nRestaurant Care: tay shuda visits, monitoring, har visit ka record, agli date pehle se tay. Ek hi contact.\n\nApne restaurant ka area aur size WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: +92 330 8652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi",
+      "native_audio": {
+        "audio_id": "1759672808494145",
+        "audio_volume": 80,
+        "video_volume": 20
+      },
+      "audio_title": "Bird Watching",
+      "audio_artist": "Danny Peter Wolf",
+      "ai_generated": true,
+      "video_path": "social-media/c3-restaurant-care-f5ccd5be.mp4",
+      "facebook": {
+        "video_path": "social-media/c3-restaurant-care-fb-8c920506.mp4",
+        "sha256": "8c920506359c83a3edf53192d7c6c669cd9d3f0d461a7fca4c9c41395a8f103e",
+        "caption": "Har mahine naya banda dhoondhna, phir se sab samjhana?\n\nRestaurant Care: tay shuda visits, monitoring, har visit ka record, agli date pehle se tay. Ek hi contact.\n\nApne restaurant ka area aur size WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi"
+      }
+    },
+    {
+      "id": "c4-service-certificate",
+      "platform": "instagram",
+      "format": "reel",
+      "scheduled_at": "2026-10-03T12:30:00+05:00",
+      "video_url": "https://safaikaro.pk/social-media/c4-service-certificate-3814a63e.mp4",
+      "sha256": "3814a63eab489f9a284862338bf8bcbb75e223d0939f4c84f3307c1cf6ed9730",
+      "caption": "Inspection kal hai aur pest control ka koi kaagaz nahi?\n\nSafaiKaro har job ke baad service certificate deta hai: kya hua, kahan hua, kab hua, kis ne kiya, aur follow-up date. Technician ke notes se banta hai, aapki copy aapke paas.\n\nYeh SafaiKaro ke kaam ka record hai, kisi sarkari idaray ki manzoori nahi.\n\nPremises ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: +92 330 8652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi",
+      "native_audio": {
+        "audio_id": "1759672808494145",
+        "audio_volume": 80,
+        "video_volume": 20
+      },
+      "audio_title": "Bird Watching",
+      "audio_artist": "Danny Peter Wolf",
+      "ai_generated": true,
+      "video_path": "social-media/c4-service-certificate-3814a63e.mp4",
+      "facebook": {
+        "video_path": "social-media/c4-service-certificate-fb-32aa7ae1.mp4",
+        "sha256": "32aa7ae1f632b4c1d982f1978a8d618cc1a7b09b5241d55a866e979e3b5b6076",
+        "caption": "Inspection kal hai aur pest control ka koi kaagaz nahi?\n\nSafaiKaro har job ke baad service certificate deta hai: kya hua, kahan hua, kab hua, kis ne kiya, aur follow-up date. Technician ke notes se banta hai, aapki copy aapke paas.\n\nYeh SafaiKaro ke kaam ka record hai, kisi sarkari idaray ki manzoori nahi.\n\nPremises ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #RestaurantKarachi #DHAKarachi #CliftonKarachi #PestControlKarachi"
+      }
+    },
+    {
+      "id": "c5-shop-office",
+      "platform": "instagram",
+      "format": "reel",
+      "scheduled_at": "2026-10-04T12:30:00+05:00",
+      "video_url": "https://safaikaro.pk/social-media/c5-shop-office-10a7da7e.mp4",
+      "sha256": "10a7da7e2c246f02327fd3323d8d5e163134d542f48330b27f8312b94239d933",
+      "caption": "Stockroom mein cheentiyan aur customer ne pehle dekh lein? Nahi.\n\nAgreed slot mein aate hain, opening se pehle kaam khatam, kaam ka record aapke paas, agli date tay.\n\nShop ya office ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: +92 330 8652035\n\n#SafaiKaro #Karachi #DHAKarachi #CliftonKarachi #PestControlKarachi #ShopOwnersKarachi",
+      "native_audio": {
+        "audio_id": "1759672808494145",
+        "audio_volume": 80,
+        "video_volume": 20
+      },
+      "audio_title": "Bird Watching",
+      "audio_artist": "Danny Peter Wolf",
+      "ai_generated": true,
+      "video_path": "social-media/c5-shop-office-10a7da7e.mp4",
+      "facebook": {
+        "video_path": "social-media/c5-shop-office-fb-f0c963c4.mp4",
+        "sha256": "f0c963c498a87dadf662db2161b5759b8b3511f39a751dc30a152fc4246b361f",
+        "caption": "Stockroom mein cheentiyan aur customer ne pehle dekh lein? Nahi.\n\nAgreed slot mein aate hain, opening se pehle kaam khatam, kaam ka record aapke paas, agli date tay.\n\nShop ya office ka area aur masla WhatsApp par bhej dein.\n\nSafaiKaro | Karachi\nWhatsApp: https://wa.me/923308652035\n\n#SafaiKaro #Karachi #DHAKarachi #CliftonKarachi #PestControlKarachi #ShopOwnersKarachi"
+      }
     }
   ]
 }
