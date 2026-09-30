@@ -235,12 +235,15 @@ var SAFAIKARO_PRICES = {
         event = 'book_click';
       }
       if (!event) return;
+      // Prepared survey links can contain customer site notes. Count the CTA
+      // without copying those notes into event properties.
+      var privateCTA = a.getAttribute('data-private-cta') === 'true';
       ph(event, {
         text: ((a.textContent || '').trim() || a.getAttribute('aria-label') || '').slice(0, 60),
-        href: href,
+        href: privateCTA ? href.split('?')[0] : href,
         cta: placementOf(a),
         section: sectionOf(a),
-        prefill: event === 'whatsapp_click' ? prefillOf(href) : '',
+        prefill: event === 'whatsapp_click' && !privateCTA ? prefillOf(href) : '',
         ref: ref
       }, true);
       return;

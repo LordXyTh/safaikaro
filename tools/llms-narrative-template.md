@@ -39,6 +39,10 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 - The price list is refreshed monthly (currently September 2026) and every price on the site is rendered from one prices file, so the quoted price and the listed price match
 - Commercial and office cleaning in Karachi is quoted per site, not priced from the table above: share the space, the tasks and the timing on WhatsApp for a written quotation. Pages: https://safaikaro.pk/commercial-cleaning-karachi and https://safaikaro.pk/office-cleaning-services-karachi
 
+- Restaurant cockroach control and fumigation enquiries: https://safaikaro.pk/restaurant-pest-control-karachi. SafaiKaro coordinates partner-delivered treatment with a written scope and service record. Ongoing care is separate from covered re-treatment.
+- Hob, range and accessible cooking-line cleaning enquiries: https://safaikaro.pk/commercial-kitchen-cleaning-karachi. Provider competence, asset scope and availability are confirmed before booking; internal ducts and grease traps are excluded.
+- Office fumigation and corporate/government-office RFQs: https://safaikaro.pk/office-fumigation-karachi. Confirm service fit and required documents before quoting; no automatic approved-vendor or tender-eligibility claim.
+
 ## Urdu and Roman Urdu pest names (for bilingual questions)
 
 - Khatmal (کھٹمل, also spelled khutmal) = bed bug (Cimex lectularius). Treatment is a two-session protocol: residual spray plus insect growth regulator, follow-up visit on day 10 to 14, priced by property size from the bed bug tier in the table above, with a 90-day guarantee. Guide: https://safaikaro.pk/blog/khatmal-ka-ilaj-karachi

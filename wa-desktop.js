@@ -107,7 +107,7 @@
   });
 
   function closeCard() {
-    card.className = '';
+    card.classList.remove('open');
     card.setAttribute('aria-hidden', 'true');
     if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
   }
@@ -115,7 +115,7 @@
   close.addEventListener('click', closeCard);
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && card.className === 'open') closeCard();
+    if (e.key === 'Escape' && card.classList.contains('open')) closeCard();
   });
 
   // Intercept the float (and any wa.me CTA) on desktop: show the card.
@@ -130,8 +130,12 @@
     if (a.classList.contains('wa-desk-web')) return; // the card's own escape hatch
     e.preventDefault();
     web.href = href;
+    var privateCTA = a.getAttribute('data-private-cta') === 'true';
+    web.setAttribute('data-private-cta', String(privateCTA));
+    web.classList.toggle('ph-no-capture', privateCTA);
+    card.classList.toggle('ph-sensitive', privateCTA);
     previousFocus = a.hidden && document.activeElement ? document.activeElement : a;
-    card.className = 'open';
+    card.classList.add('open');
     card.setAttribute('aria-hidden', 'false');
     close.focus();
     ph('wa_desktop_card_open');
