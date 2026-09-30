@@ -19,16 +19,21 @@
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && menu.classList.contains('sk-open')) { closeMenu(); toggle.focus(); }
     });
+    toggle.closest('.sk-nav').classList.add('sk-enhanced');
   }
   document.querySelectorAll('form.sk-survey').forEach(function (form) {
     var link = form.querySelector('[data-survey-link]');
     var status = form.querySelector('[data-survey-status]');
+    var prepare = form.querySelector('button[type="submit"]');
     if (!link || !status) return;
-    form.addEventListener('input', function () {
+    function invalidateRequest() {
       link.hidden = true;
+      link.removeAttribute('href');
       status.textContent = '';
-    });
-    form.addEventListener('change', function () { link.hidden = true; status.textContent = ''; });
+      if (prepare) prepare.classList.remove('sk-button-secondary');
+    }
+    form.addEventListener('input', invalidateRequest);
+    form.addEventListener('change', invalidateRequest);
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       if (!form.reportValidity()) return;
@@ -45,8 +50,10 @@
       message += '\nPlease confirm the survey or quotation next step.';
       link.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(message);
       link.hidden = false;
+      if (prepare) prepare.classList.add('sk-button-secondary');
       status.textContent = 'Your request is ready. Open WhatsApp to review and send it. Nothing has been sent yet.';
       link.focus();
+      link.scrollIntoView({block: 'nearest'});
       // Do not send form contents or a generated URL to analytics.
       if (window.posthog && typeof window.posthog.capture === 'function') {
         try { window.posthog.capture('commercial_survey_prepared', {path: location.pathname, service: form.dataset.service || 'commercial'}); } catch (_) {}
