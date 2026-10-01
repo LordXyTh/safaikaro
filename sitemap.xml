@@ -4,7 +4,7 @@
   <!-- Core pages -->
   <url>
     <loc>https://safaikaro.pk/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://safaikaro.pk/cockroach-control-karachi</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://safaikaro.pk/fumigation-certificate-karachi</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -112,7 +112,7 @@
   </url>
   <url>
     <loc>https://safaikaro.pk/commercial</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -132,7 +132,7 @@
   </url>
   <url>
     <loc>https://safaikaro.pk/pest-control-contract-karachi</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -292,25 +292,37 @@
   </url>
   <url>
     <loc>https://safaikaro.pk/commercial-cleaning-karachi</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://safaikaro.pk/commercial-kitchen-cleaning-karachi</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://safaikaro.pk/office-cleaning-services-karachi</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://safaikaro.pk/office-fumigation-karachi</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://safaikaro.pk/post-construction-cleaning-karachi</loc>
     <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://safaikaro.pk/restaurant-pest-control-karachi</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

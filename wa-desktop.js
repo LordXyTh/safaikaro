@@ -14,6 +14,7 @@
   var PHONE_DISPLAY = '0330 8652035';
   var PHONE_COPY = '+92 330 8652035';
   var previousFocus = null;
+  var activeSource = null;
 
   var style = document.createElement('style');
   style.textContent =
@@ -107,15 +108,28 @@
   });
 
   function closeCard() {
-    card.className = '';
+    card.classList.remove('open');
     card.setAttribute('aria-hidden', 'true');
+    web.href = 'https://wa.me/923308652035';
+    activeSource = null;
     if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
   }
+
+  function invalidateEditedRequest(event) {
+    var sourceForm = activeSource && activeSource.closest('form');
+    if (sourceForm && sourceForm.contains(event.target)) {
+      // Keep focus in the edited field and remove the obsolete prepared request.
+      previousFocus = null;
+      closeCard();
+    }
+  }
+  document.addEventListener('input', invalidateEditedRequest);
+  document.addEventListener('change', invalidateEditedRequest);
 
   close.addEventListener('click', closeCard);
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && card.className === 'open') closeCard();
+    if (e.key === 'Escape' && card.classList.contains('open')) closeCard();
   });
 
   // Intercept the float (and any wa.me CTA) on desktop: show the card.
@@ -130,8 +144,13 @@
     if (a.classList.contains('wa-desk-web')) return; // the card's own escape hatch
     e.preventDefault();
     web.href = href;
+    activeSource = a;
+    var privateCTA = a.getAttribute('data-private-cta') === 'true';
+    web.setAttribute('data-private-cta', String(privateCTA));
+    web.classList.toggle('ph-no-capture', privateCTA);
+    card.classList.toggle('ph-sensitive', privateCTA);
     previousFocus = a.hidden && document.activeElement ? document.activeElement : a;
-    card.className = 'open';
+    card.classList.add('open');
     card.setAttribute('aria-hidden', 'false');
     close.focus();
     ph('wa_desktop_card_open');
