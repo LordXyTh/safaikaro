@@ -1186,10 +1186,6 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
     })();
 
     // FAQ accordion
-    if (location.hash) {
-      var hashed = document.querySelector('.faq-item' + location.hash.replace(/[^A-Za-z0-9_#-]/g, ''));
-      if (hashed) { hashed.classList.add('open'); var hq = hashed.querySelector('.faq-q'); if (hq) hq.setAttribute('aria-expanded','true'); }
-    }
     document.querySelectorAll('.faq-q').forEach(function(b){
       b.addEventListener('click', function(){
         var item = this.closest('.faq-item'), wasOpen = item.classList.contains('open');
