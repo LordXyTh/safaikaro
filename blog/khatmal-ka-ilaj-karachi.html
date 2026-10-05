@@ -915,6 +915,7 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
     link.addEventListener('click', function () {
       capture('khatmal_contextual_cta_click', {
         path: window.location.pathname,
+        cta: 'contextual',
         context: link.getAttribute('data-context')
       }, true);
     });

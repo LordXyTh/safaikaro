@@ -135,6 +135,10 @@ var SAFAIKARO_PRICES = {
  * text because the float pill is icon-only, making placement unreadable).
  * An explicit data-cta="..." on the anchor or any ancestor wins.
  *
+ * whatsapp_open_unconfirmed { cta, browser, path }: fired 4 s after a
+ *   whatsapp_click if the page is still visible (the tap probably did not
+ *   open WhatsApp), so repeat taps read as retries, not extra contacts.
+ *
  * Micro-conversions (same listener, buttons not links):
  *   faq_open { question, path }   .faq-q
  *   price_tab_change { tab, path } .price-tab
@@ -206,6 +210,20 @@ var SAFAIKARO_PRICES = {
   // a second is counted once, so lead_events stops overstating lead_persons.
   var lastClick = { href: '', at: 0 };
 
+  // A WhatsApp tap normally takes the page to the background (the app or a
+  // new tab opens). If the page is still visible four seconds later, the tap
+  // most likely did not open a conversation (blocked popup, wa.me not
+  // installed, a mis-tap), so repeat taps on the same page can be read as
+  // retries rather than as separate contacts.
+  function watchUnconfirmedOpen(cta) {
+    if (typeof document.visibilityState === 'undefined') return;
+    setTimeout(function () {
+      if (document.visibilityState === 'visible') {
+        ph('whatsapp_open_unconfirmed', { cta: cta, browser: (navigator.userAgent || '').slice(0, 80) });
+      }
+    }, 4000);
+  }
+
   document.addEventListener('click', function (e) {
     var t = e.target;
     if (!t || !t.closest) return;
@@ -228,6 +246,7 @@ var SAFAIKARO_PRICES = {
         lastClick.href = href; lastClick.at = now;
         event = 'whatsapp_click';
         ref = refOf(a);
+        watchUnconfirmedOpen(placementOf(a));
       } else if (lower.indexOf('tel:') === 0) {
         event = 'call_click';
       } else if (href === '/book' || href.indexOf('/book') === 0 || /\/book(\/|\?|#|$)/.test(href)) {
