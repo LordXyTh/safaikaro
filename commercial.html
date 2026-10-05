@@ -162,7 +162,7 @@
         "name": "What does commercial pest control in Karachi include?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SafaiKaro commercial pest control in Karachi covers offices, shops, plazas, bank branches, warehouses, schools and apartment buildings. One visit treats cockroaches, ants and crawling insects with gel bait plus residual spray; rodent and termite work are quoted as separate lines. Every job starts with a free site survey and a written, zone by zone quotation, and ends with a fumigation certificate for the premises. Ongoing cover runs on a quarterly or two monthly contract."
+          "text": "SafaiKaro commercial pest control in Karachi covers offices, shops, plazas, bank branches, warehouses and schools. One visit treats cockroaches, ants and crawling insects with gel bait plus residual spray; rodent and termite work are itemised on the same zone by zone quotation. Every job starts with a free site survey and a written quotation, and ends with a fumigation certificate for the premises. Ongoing cover runs on a monthly, two monthly or quarterly contract, set at the survey. WhatsApp +92 330 8652035 with the building address and floor count and we will confirm a survey slot."
         }
       },
       {
@@ -1057,7 +1057,7 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
       <div class="faq-list comm-faq">
         <div class="faq-item" id="commercial-pest-control-karachi">
           <button class="faq-q" aria-expanded="false">What does commercial pest control in Karachi include? <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg></button>
-          <div class="faq-a">SafaiKaro commercial pest control in Karachi covers offices, shops, plazas, bank branches, warehouses, schools and apartment buildings. One visit treats cockroaches, ants and crawling insects with gel bait plus residual spray; rodent and termite work are quoted as separate lines. Every job starts with a free site survey and a written, zone by zone quotation, and ends with a <a href="/fumigation-certificate-karachi">fumigation certificate</a> for the premises. Ongoing cover runs on a quarterly or two monthly <a href="/pest-control-contract-karachi">contract</a>.</div>
+          <div class="faq-a">SafaiKaro commercial pest control in Karachi covers offices, shops, plazas, bank branches, warehouses and schools. One visit treats cockroaches, ants and crawling insects with gel bait plus residual spray; rodent and termite work are itemised on the same zone by zone quotation. Every job starts with a free site survey and a written quotation, and ends with a <a href="/fumigation-certificate-karachi">fumigation certificate</a> for the premises. Ongoing cover runs on a monthly, two monthly or quarterly <a href="/pest-control-contract-karachi">contract</a>, set at the survey. <a href="https://wa.me/923308652035?text=Hi%20SafaiKaro%2C%20I%20need%20commercial%20pest%20control%20in%20Karachi.%20Building%20address%20and%20floor%20count%3A%20" target="_blank" rel="noopener">WhatsApp +92 330 8652035</a> with the building address and floor count and we will confirm a survey slot.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">How do you quote a commercial pest control job in Karachi? <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg></button>
@@ -1186,6 +1186,10 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
     })();
 
     // FAQ accordion
+    if (location.hash) {
+      var hashed = document.querySelector('.faq-item' + location.hash.replace(/[^A-Za-z0-9_#-]/g, ''));
+      if (hashed) { hashed.classList.add('open'); var hq = hashed.querySelector('.faq-q'); if (hq) hq.setAttribute('aria-expanded','true'); }
+    }
     document.querySelectorAll('.faq-q').forEach(function(b){
       b.addEventListener('click', function(){
         var item = this.closest('.faq-item'), wasOpen = item.classList.contains('open');
