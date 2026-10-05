@@ -192,7 +192,7 @@ var SAFAIKARO_PRICES = {
   function prefillOf(href) {
     var m = /[?&]text=([^&]*)/.exec(href);
     if (!m) return '';
-    try { return decodeURIComponent(m[1].replace(/\+/g, ' ')).replace(/^Hi SafaiKaro,?\s*/i, '').slice(0, 80); }
+    try { return decodeURIComponent(m[1].replace(/\+/g, ' ')).replace(/^Hi SafaiKaro[,!]?\s*/i, '').slice(0, 80); }
     catch (_) { return ''; }
   }
 
