@@ -278,7 +278,9 @@
     @media (prefers-reduced-motion: reduce) {
       .symptom-option__body { transition: none; }
     }
-  </style>
+      .highlight-box .definition-cta { margin: 12px 0 0; }
+    .definition-cta a { display: inline-block; font-weight: 700; color: #0D4A2F; text-decoration: underline; text-underline-offset: 3px; }
+</style>
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="SafaiKaro">
@@ -492,6 +494,7 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
   <div class="highlight-box" id="khatmal-in-english">
     <p><strong>Khatmal in English: bed bug.</strong> Khatmal insect (کھٹمل, kuch log khutmal bhi likhte hain) ko English mein bed bug kehte hain, scientific name Cimex lectularius. Yeh apple seed jitna chota, flat, reddish-brown insect hai jo raat ko khoon peeta hai aur din mein mattress ke seams aur bed frame ke joints mein chhupta hai.</p>
     <p>Karachi mein khatmal ka professional ilaj <span data-price="bedbug-s">Rs 11,000</span> se shuru hota hai (100 sq yd tak), spray aur IGR ke do sessions, 90-day guarantee. Service page: <a href="/bed-bug-treatment-karachi">bed bug treatment Karachi</a>.</p>
+    <p class="definition-cta"><a href="https://wa.me/923308652035?text=Hi%20SafaiKaro%2C%20ghar%20mein%20khatmal%20hain.%20Mujhe%20treatment%20ka%20quote%20chahiye.%20Ghar%20ka%20size%20aur%20area%20bhej%20raha%2Frahi%20hoon." target="_blank" rel="noopener" data-cta="definition">Treatment Quote Lein: WhatsApp par ghar ka size aur area likhein, rate usi chat mein milta hai &rarr;</a></p>
   </div>
 
   <!-- INTRO -->
@@ -912,6 +915,7 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
     link.addEventListener('click', function () {
       capture('khatmal_contextual_cta_click', {
         path: window.location.pathname,
+        cta: 'contextual',
         context: link.getAttribute('data-context')
       }, true);
     });

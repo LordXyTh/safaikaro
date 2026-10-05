@@ -135,6 +135,11 @@ var SAFAIKARO_PRICES = {
  * text because the float pill is icon-only, making placement unreadable).
  * An explicit data-cta="..." on the anchor or any ancestor wins.
  *
+ * whatsapp_open_unconfirmed { cta, in_app, path }: fired 4 s after a
+ *   whatsapp_click if the page never went hidden in between (the tap
+ *   probably did not open WhatsApp), so repeat taps read as retries, not
+ *   extra contacts. in_app names an in-app browser token when present.
+ *
  * Micro-conversions (same listener, buttons not links):
  *   faq_open { question, path }   .faq-q
  *   price_tab_change { tab, path } .price-tab
@@ -187,7 +192,7 @@ var SAFAIKARO_PRICES = {
   function prefillOf(href) {
     var m = /[?&]text=([^&]*)/.exec(href);
     if (!m) return '';
-    try { return decodeURIComponent(m[1].replace(/\+/g, ' ')).replace(/^Hi SafaiKaro,?\s*/i, '').slice(0, 80); }
+    try { return decodeURIComponent(m[1].replace(/\+/g, ' ')).replace(/^Hi SafaiKaro[,!]?\s*/i, '').slice(0, 80); }
     catch (_) { return ''; }
   }
 
@@ -205,6 +210,33 @@ var SAFAIKARO_PRICES = {
   // synthetic click, or a nested element bubbling twice): the same href within
   // a second is counted once, so lead_events stops overstating lead_persons.
   var lastClick = { href: '', at: 0 };
+
+  // A WhatsApp tap normally takes the page to the background (the app or a
+  // new tab opens). If the page is still visible four seconds later, the tap
+  // most likely did not open a conversation (blocked popup, wa.me not
+  // installed, a mis-tap), so repeat taps on the same page can be read as
+  // retries rather than as separate contacts.
+  function watchUnconfirmedOpen(cta) {
+    if (typeof document.visibilityState === 'undefined') return;
+    var start = Date.now();
+    var wentHidden = false;
+    function onHide() { if (document.visibilityState !== 'visible') wentHidden = true; }
+    function onPageHide() { wentHidden = true; }
+    document.addEventListener('visibilitychange', onHide);
+    window.addEventListener('pagehide', onPageHide);
+    setTimeout(function () {
+      document.removeEventListener('visibilitychange', onHide);
+      window.removeEventListener('pagehide', onPageHide);
+      // A late wake-up means the browser suspended the page (it was in the
+      // background, so WhatsApp did open); only a page that stayed visible the
+      // whole time counts as unconfirmed.
+      if (!wentHidden && document.visibilityState === 'visible' && Date.now() - start < 6000) {
+        var ua = navigator.userAgent || '';
+        var m = /FBAN|FBAV|FB_IAB|Instagram|Line\/|; wv\)/.exec(ua);
+        ph('whatsapp_open_unconfirmed', { cta: cta, in_app: m ? m[0] : '' });
+      }
+    }, 4000);
+  }
 
   document.addEventListener('click', function (e) {
     var t = e.target;
@@ -228,6 +260,7 @@ var SAFAIKARO_PRICES = {
         lastClick.href = href; lastClick.at = now;
         event = 'whatsapp_click';
         ref = refOf(a);
+        watchUnconfirmedOpen(placementOf(a));
       } else if (lower.indexOf('tel:') === 0) {
         event = 'call_click';
       } else if (href === '/book' || href.indexOf('/book') === 0 || /\/book(\/|\?|#|$)/.test(href)) {

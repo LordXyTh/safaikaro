@@ -36,7 +36,7 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 - Booking deposit: Rs 500 via Easypaisa, JazzCash, or bank transfer; remainder paid on day of treatment
 - Operating hours: Monday-Saturday, 9am-7pm; emergency callouts for Annual Shield plan members
 - Annual Shield plan saves up to Rs 24,000 vs booking 4 quarterly fumigation visits individually
-- The price list is refreshed monthly (currently September 2026) and every price on the site is rendered from one prices file, so the quoted price and the listed price match
+- The price list is refreshed monthly (currently October 2026) and every price on the site is rendered from one prices file, so the quoted price and the listed price match
 - Commercial and office cleaning in Karachi is quoted per site, not priced from the table above: share the space, the tasks and the timing on WhatsApp for a written quotation. Pages: https://safaikaro.pk/commercial-cleaning-karachi and https://safaikaro.pk/office-cleaning-services-karachi
 
 - Restaurant cockroach control and fumigation enquiries: https://safaikaro.pk/restaurant-pest-control-karachi. SafaiKaro coordinates partner-delivered treatment with a written scope and service record. Ongoing care is separate from covered re-treatment.
