@@ -1113,6 +1113,7 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
     whatsappLink.rel = 'noopener';
     whatsappLink.textContent = 'Quote WhatsApp par bhejein';
     whatsappLink.hidden = true;
+    whatsappLink.setAttribute('data-cta', 'handoff');
     document.body.appendChild(whatsappLink);
     whatsappLink.click();
     whatsappLink.remove();

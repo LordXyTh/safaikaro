@@ -135,9 +135,10 @@ var SAFAIKARO_PRICES = {
  * text because the float pill is icon-only, making placement unreadable).
  * An explicit data-cta="..." on the anchor or any ancestor wins.
  *
- * whatsapp_open_unconfirmed { cta, browser, path }: fired 4 s after a
- *   whatsapp_click if the page is still visible (the tap probably did not
- *   open WhatsApp), so repeat taps read as retries, not extra contacts.
+ * whatsapp_open_unconfirmed { cta, in_app, path }: fired 4 s after a
+ *   whatsapp_click if the page never went hidden in between (the tap
+ *   probably did not open WhatsApp), so repeat taps read as retries, not
+ *   extra contacts. in_app names an in-app browser token when present.
  *
  * Micro-conversions (same listener, buttons not links):
  *   faq_open { question, path }   .faq-q
@@ -217,9 +218,22 @@ var SAFAIKARO_PRICES = {
   // retries rather than as separate contacts.
   function watchUnconfirmedOpen(cta) {
     if (typeof document.visibilityState === 'undefined') return;
+    var start = Date.now();
+    var wentHidden = false;
+    function onHide() { if (document.visibilityState !== 'visible') wentHidden = true; }
+    function onPageHide() { wentHidden = true; }
+    document.addEventListener('visibilitychange', onHide);
+    window.addEventListener('pagehide', onPageHide);
     setTimeout(function () {
-      if (document.visibilityState === 'visible') {
-        ph('whatsapp_open_unconfirmed', { cta: cta, browser: (navigator.userAgent || '').slice(0, 80) });
+      document.removeEventListener('visibilitychange', onHide);
+      window.removeEventListener('pagehide', onPageHide);
+      // A late wake-up means the browser suspended the page (it was in the
+      // background, so WhatsApp did open); only a page that stayed visible the
+      // whole time counts as unconfirmed.
+      if (!wentHidden && document.visibilityState === 'visible' && Date.now() - start < 6000) {
+        var ua = navigator.userAgent || '';
+        var m = /FBAN|FBAV|FB_IAB|Instagram|Line\/|; wv\)/.exec(ua);
+        ph('whatsapp_open_unconfirmed', { cta: cta, in_app: m ? m[0] : '' });
       }
     }, 4000);
   }
