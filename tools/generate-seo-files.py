@@ -98,7 +98,6 @@ PAGE_ORDER = [
 BLOG_ORDER = [
     "/blog/khatmal-ka-ilaj-karachi",
     "/blog/deemak-ka-ilaj-karachi",
-    "/blog/deemak-season-karachi",
     "/blog/fumigation-kya-hoti-hai",
     "/blog/termite-proofing-new-construction-karachi",
     "/blog/dengue-se-bachao-karachi",
