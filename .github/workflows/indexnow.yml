@@ -43,6 +43,9 @@ jobs:
           URLS=()
           while IFS= read -r f; do
             [ -z "$f" ] && continue
+            # Never submit noindex pages (e.g. the paid landing pages under l/) to search engines.
+            case "$f" in l/*) continue ;; esac
+            if [ -f "$f" ] && grep -qiE '<meta[^>]+name=["'"'"']robots["'"'"'][^>]*content=["'"'"'][^"'"'"']*noindex' "$f"; then continue; fi
             p="${f%.html}"
             if [ "$p" = "index" ]; then
               u="https://$HOST/"
@@ -53,6 +56,7 @@ jobs:
             fi
             URLS+=("$u")
           done <<< "$CHANGED"
+          if [ ${#URLS[@]} -eq 0 ]; then echo "Only noindex pages changed, nothing to submit."; exit 0; fi
 
           echo "Submitting ${#URLS[@]} URL(s):"
           printf '  %s\n' "${URLS[@]}"

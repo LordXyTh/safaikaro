@@ -44,7 +44,8 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://safaikaro.pk"
 
 # Directories to never walk into when looking for *.html pages.
-EXCLUDE_DIRS = {".git", ".github", ".agents", ".entire", "tools", "images"}
+# "l" holds noindex paid landing pages; they must never reach the sitemap or llms files.
+EXCLUDE_DIRS = {".git", ".github", ".agents", ".entire", "tools", "images", "l"}
 
 # Files that are never real pages even though they end in .html.
 EXCLUDE_FILES = {"404.html"}
@@ -171,6 +172,12 @@ def url_path_for(rel_path: Path) -> str:
 
 def is_stub(html_text: str) -> bool:
     return bool(re.search(r'<meta\s+http-equiv=["\']refresh["\']', html_text, re.I))
+
+
+def is_noindex(html_text: str) -> bool:
+    # A page that asks search engines not to index it must not be listed in sitemap.xml, llms.txt or llms-full.txt.
+    head = html_text.split("</head>", 1)[0]
+    return bool(re.search(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\'][^"\']*noindex', head, re.I))
 
 
 def extract_title(html_text: str) -> str:
@@ -343,7 +350,7 @@ def collect_pages() -> list[Page]:
     pages = []
     for path in find_html_files():
         text = path.read_text(encoding="utf-8")
-        if is_stub(text):
+        if is_stub(text) or is_noindex(text):
             continue
         rel = path.relative_to(ROOT)
         url = url_path_for(rel)
