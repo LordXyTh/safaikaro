@@ -145,6 +145,64 @@ var SAFAIKARO_PRICES = {
  *   price_tab_change { tab, path } .price-tab
  *   nav_menu_open { path }         .hamburger
  */
+/**
+ * Footer WhatsApp prefill. The shared footer on every page links wa.me with no
+ * message, so footer taps reach the inbox blank and nobody can tell what the
+ * person wanted. Instead of editing fifty footers, the footer link gets a
+ * prefill naming this page's service at load time, from the path. Explicit
+ * ?text= on a footer link is left alone. The delegated listener below reads the
+ * prefill off the href at click time, so the event carries it too.
+ */
+(function () {
+  if (typeof document === 'undefined') return;
+  var SERVICE_BY_PATH = [
+    [/fumigation-certificate/, 'a fumigation certificate for my premises'],
+    [/fumigation-services|apartment-fumigation|school-fumigation|office-fumigation|fumigation-kya-hoti-hai|fumigation-vs-pest-control|fumigation-bachon|ghar-ko-fumigation|fumigation-machine/, 'general fumigation'],
+    [/termite|deemak/, 'termite treatment'],
+    [/bed-bug|khatmal/, 'bed bug (khatmal) treatment'],
+    [/rodent/, 'rodent control'],
+    [/mosquito|dengue/, 'mosquito and dengue spray'],
+    [/cockroach/, 'cockroach control'],
+    [/ant-control/, 'ant control'],
+    [/lizard|chipkali/, 'lizard (chipkali) control'],
+    [/bee-wasp/, 'bee or wasp nest removal'],
+    [/annual-pest-control/, 'the Annual Shield plan'],
+    [/commercial-cleaning|office-cleaning|post-construction-cleaning|janitorial|quotation-checklist|commercial-kitchen/, 'a cleaning quotation for my premises'],
+    [/commercial|contract/, 'commercial pest control'],
+    [/price-list|^\/book/, 'a pest control quote']
+  ];
+  var CAPS = { dha: 'DHA', pechs: 'PECHS' };
+  function areaOf(path) {
+    var m = /pest-control-(.+?)-karachi/.exec(path);
+    if (!m || m[1] === 'price-list' || m[1] === 'contract') return '';
+    if (m[1] === 'north') return 'North Karachi';
+    return m[1].split('-').map(function (w) {
+      if (CAPS[w]) return CAPS[w];
+      return w.length > 1 ? w.charAt(0).toUpperCase() + w.slice(1) : w.toUpperCase();
+    }).join(' ').replace(/ E /g, '-e-');
+  }
+  function messageFor(path) {
+    var area = areaOf(path);
+    if (area) return 'Hi SafaiKaro, I need pest control in ' + area + (/Karachi$/.test(area) ? '.' : ', Karachi.');
+    for (var i = 0; i < SERVICE_BY_PATH.length; i++) {
+      if (SERVICE_BY_PATH[i][0].test(path)) return 'Hi SafaiKaro, I need ' + SERVICE_BY_PATH[i][1] + ' in Karachi.';
+    }
+    return 'Hi SafaiKaro, I need pest control in Karachi.';
+  }
+  function prefillFooter() {
+    var path = location.pathname.replace(/\.html$/, '');
+    var links = document.querySelectorAll('footer a[href*="wa.me"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute('href') || '';
+      if (/[?&]text=/.test(href)) continue;
+      var text = messageFor(path);
+      links[i].setAttribute('href', href.split('#')[0] + (href.indexOf('?') === -1 ? '?' : '&') + 'text=' + encodeURIComponent(text));
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', prefillFooter);
+  else prefillFooter();
+})();
+
 (function () {
   if (typeof document === 'undefined') return;
 
