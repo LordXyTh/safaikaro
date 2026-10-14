@@ -119,7 +119,7 @@ var SAFAIKARO_PRICES = {
 
 /**
  * Page class and segment for attribution (offices, restaurants, schools ... vs homes).
- * The rules are generated from the private routine's segment map; keep them identical (a test compares them).
+ * The rules are kept in sync with the segment map; keep them identical (a test compares them).
  * $1 means: take the segment from the first capture group (paid /l/<segment>-<angle> pages).
  */
 /* segments:begin */
@@ -254,7 +254,10 @@ var SK_PREFILL = (function () {
   function entryOf() {
     try {
       var v = sessionStorage.getItem('sk_entry');
-      if (v) return JSON.parse(v);
+      if (v) {
+        var o = JSON.parse(v);
+        if (o && o.c) return o;
+      }
       var c = skClassify(location.pathname);
       var e = { c: c[0], s: c[1] };
       sessionStorage.setItem('sk_entry', JSON.stringify(e));
