@@ -236,6 +236,17 @@ def fmt_price(amount: int) -> str:
     return f"Rs {amount:,}"
 
 
+def max_annual_saving(prices: dict[str, int]) -> int:
+    """Largest saving of Annual Shield vs 4 separate fumigation visits (same rule as prices.js)."""
+    best = 0
+    for tier in ("s", "m", "ml", "l", "xl"):
+        annual = prices.get(f"annual-{tier}", prices.get("annual-l") if tier == "ml" else None)
+        visit = prices.get(f"fumigation-{tier}")
+        if annual is not None and visit is not None:
+            best = max(best, 4 * visit - annual)
+    return best
+
+
 def build_price_table(prices: dict[str, int]) -> str:
     header = "| Service | " + " | ".join(TIER_HEADERS) + " |"
     sep = "|---" * (len(TIER_HEADERS) + 1) + "|"
@@ -244,8 +255,13 @@ def build_price_table(prices: dict[str, int]) -> str:
         cells = []
         for tier in tiers:
             key = f"{prefix}-{tier}"
+            # A service with no -ml key prices 201-500 sq yd as one tier (the -l key):
+            # show that one value under both the 201-300 and 301-500 columns.
+            one_tier = f"{prefix}-ml" not in prices and tier in ("ml", "l")
+            if one_tier:
+                key = f"{prefix}-l"
             if key in prices:
-                cells.append(fmt_price(prices[key]) + suffix)
+                cells.append(fmt_price(prices[key]) + suffix + (" (one 201-500 tier)" if one_tier else ""))
             else:
                 cells.append("n/a")
         rows.append(f"| {label} | " + " | ".join(cells) + " |")
@@ -457,6 +473,7 @@ def build_llms_txt(pages: list[Page], prices: dict[str, int]) -> str:
     template = (ROOT / "tools" / "llms-narrative-template.md").read_text(encoding="utf-8")
     content = template
     content = content.replace("{{PRICE_TABLE}}", build_price_table(prices))
+    content = content.replace("{{ANNUAL_MAX_SAVING}}", fmt_price(max_annual_saving(prices)))
     content = content.replace("{{SERVICE_AREAS}}", build_service_areas_md())
     content = content.replace("{{PAGES}}", build_pages_md(pages))
     content = content.replace("{{BLOG_POSTS}}", build_blog_md(pages))

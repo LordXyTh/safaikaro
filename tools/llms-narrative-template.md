@@ -16,7 +16,7 @@ SafaiKaro (website: https://safaikaro.pk) is a pest control company for business
 
 ## Services & Pricing
 
-Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301-500 / 501-1,000. "n/a" means that service is not offered at that tier.
+Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301-500 / 501-1,000. Mosquito control and Annual Shield use one tier for 201-500 sq yd.
 
 {{PRICE_TABLE}}
 
@@ -34,7 +34,7 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 - Termite treatments have a 90-day guarantee; confirm treatment scope before booking
 - Same-day service in DHA, Clifton, PECHS, Bahadurabad and Saddar if booked before 10am; other Karachi areas get the next available slot
 - Booking deposit: Rs 500 via Easypaisa, JazzCash, or bank transfer; remainder paid on day of treatment
-- Annual Shield plan saves up to Rs 24,000 vs booking 4 quarterly fumigation visits individually
+- Annual Shield plan saves up to {{ANNUAL_MAX_SAVING}} vs booking 4 quarterly fumigation visits individually
 - The price list is refreshed monthly (currently October 2026) and every price on the site is rendered from one prices file, so the quoted price and the listed price match
 - Commercial and office cleaning in Karachi is quoted per site, not priced from the table above: share the space, the tasks and the timing on WhatsApp for a written quotation. Pages: https://safaikaro.pk/commercial-cleaning-karachi and https://safaikaro.pk/office-cleaning-services-karachi
 
