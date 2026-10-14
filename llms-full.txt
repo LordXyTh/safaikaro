@@ -238,9 +238,9 @@ DHA Karachi mein pest control ki kitni cost hoti hai?
 
 SafaiKaro mein general fumigation DHA mein Rs 7,000 se shuru hoti hai 100 sq yards tak ke ghar ke liye. 101 se 200 sq yards ke liye Rs 11,000. All prices are published upfront, no hidden charges, ever. WhatsApp par apna phase aur ghar ka size likhein, exact rate usi chat mein confirm hota hai.
 
-Kya same-day service available hai?
+Kya DHA, Clifton, PECHS, Bahadurabad aur Saddar mein same-day service available hai?
 
-Yes. If you book before 10am, same-day slots are often available. Our technicians cover DHA Phase 1-8 and Clifton daily. WhatsApp your area and we confirm the slot in the same chat.
+Yes. Same-day slots in DHA, Clifton, PECHS, Bahadurabad and Saddar are often available if you book before 10am; elsewhere in Karachi you get the next available slot. Our technicians cover DHA Phase 1-8 and Clifton daily. WhatsApp your area and we confirm the slot in the same chat.
 
 Kya treatment bachon aur pets ke liye safe hai?
 
@@ -2716,7 +2716,7 @@ Record the authorised rooms, treatment date and work completed. For access aroun
 
 ### Offices & Commercial Buildings
 
-Corporate and government-office buyers can specify authorised areas, access windows and purchasing requirements. See office fumigation in Karachi for a survey and RFQ. A treatment record does not establish approved-vendor status.
+Corporate and government-office buyers can specify authorised areas, access windows and purchasing requirements. See office fumigation in Karachi for a survey and RFQ. This record documents the work done. It is not a regulator's or client's sign-off.
 
 🏭
 
@@ -3010,7 +3010,7 @@ The areas to be treated  -  classrooms, labs, grounds, storerooms
 
 Frequency  -  one-time, monthly, or quarterly contract
 
-As a rough anchor, general fumigation for smaller premises starts from Rs 7,000, but a school is treated as a larger commercial site and is always quoted after a brief assessment. For schools wanting ongoing protection with scheduled visits and documentation, see the commercial pest control page.
+A school is treated as a larger commercial site and is always quoted after a brief assessment, with the written price set by campus size, blocks and the treatment schedule. For schools wanting ongoing protection with scheduled visits and documentation, see the commercial pest control page.
 
 WhatsApp us your campus details and we'll give you a clear, fixed quote  -  no hidden charges.
 
@@ -3060,7 +3060,7 @@ Yes. During monsoon season, standing water in courtyards, planters, and drainage
 
 How much does school fumigation service cost in Karachi?
 
-Pricing depends on campus size, number of floors or blocks, whether a canteen is included, and whether you want a one-time treatment or a monthly or quarterly schedule. General fumigation for smaller premises starts from Rs 7,000, but a school is treated as a commercial site and always quoted after a brief assessment. WhatsApp your campus details for a clear, fixed quote.
+Pricing depends on campus size, number of floors or blocks, whether a canteen is included, and whether you want a one-time treatment or a monthly or quarterly schedule. A school is treated as a commercial site and always quoted after a brief assessment. WhatsApp your campus details for a clear, fixed quote.
 
 Is a fumigation certificate required for a school in Karachi?
 
@@ -8531,7 +8531,7 @@ A single office and a whole building are different jobs. Identify the approving 
 
 Send your RFQ, site scope, desired schedule and purchasing requirements to hello@safaikaro.pk. We confirm service fit and the documents we can provide before submitting a quotation.
 
-Share required eligibility, invoice and payment conditions early so they can be checked against the proposed engagement. An enquiry does not establish tender eligibility or approved-vendor status.
+Share required eligibility, invoice and payment conditions early so they can be checked against the proposed engagement. An enquiry does not establish tender eligibility, and a treatment record is not a regulator's or client's sign-off.
 
 ### Useful details in an RFQ
 
@@ -8594,7 +8594,7 @@ The survey and written quotation define the office zones, pests and access. Pant
 Can you arrange pest treatment outside office hours?
 Share your working hours, keyholder availability and any weekend or closure window. Our own team does the work. SafaiKaro confirms team availability and the access schedule before booking. Preparation and re-entry instructions depend on the actual treatment.
 Can government offices request a fumigation quotation?
-Yes. Corporate and government-office buyers can send an RFQ with the premises, required work and purchasing requirements to hello@safaikaro.pk. SafaiKaro confirms service fit and the documents it can supply before submitting a quotation. This is not a claim of approved-vendor status or automatic tender eligibility.
+Yes. Corporate and government-office buyers can send an RFQ with the premises, required work and purchasing requirements to hello@safaikaro.pk. SafaiKaro confirms service fit and the documents it can supply before submitting a quotation. A treatment record documents the work done. It is not a regulator's or client's sign-off, and tender eligibility is not assumed.
 What records do you provide after pest treatment?
 SafaiKaro provides a dated certificate after commercial pest treatment, recording the premises, date, chemicals used, treated areas, technician, stamp and recommended next-treatment date. It is issued the same day for a single-visit treatment, or at the final walkthrough for a multi-zone job. Share any required format before booking. The record does not guarantee regulatory approval or acceptance by a purchasing authority.
 Is office cleaning included in pest control?
@@ -9545,7 +9545,7 @@ Do you treat student hostels and PGs near University Road for bed bugs?
 
 Yes, heat-and-chemical combination protocol with a 90-day re-treatment guarantee, the same protocol used in DHA Phase 5's bed bug cases. Frequent tenant turnover and second-hand furniture movement near University Road's hostels and PGs is a documented bed bug introduction route.
 
-Kya NIPA Chowrangi ke area mein same-day booking milti hai?
+Kya NIPA Chowrangi ke area mein usi din booking milti hai?
 
 NIPA Chowrangi ke aas paas next available slot milta hai, aksar agle din. Subah 10 baje se pehle WhatsApp karein to hum usi din earliest date confirm kar dete hain; same-day visit DHA, Clifton, PECHS, Bahadurabad aur Saddar tak limited hai.
 
@@ -10429,7 +10429,7 @@ What is the price for termite treatment in Nazimabad?
 
 Termite treatment in Nazimabad starts from Rs 13,000 for homes up to 100 sq yards, scaling with property size up to Rs 37,000 for 501–1,000 sq yards.
 
-Do you offer same-day service for Liaquatabad markets and shops?
+Can Liaquatabad markets and shops get a visit on the day they book?
 
 Liaquatabad ke gharon aur dukanon dono ke liye next available slot milta hai, aksar agle din. Subah 10 baje se pehle WhatsApp karein to hum usi din earliest date confirm kar dete hain; same-day visit DHA, Clifton, PECHS, Bahadurabad aur Saddar tak limited hai.
 
@@ -10889,7 +10889,7 @@ North Nazimabad ke purane makanon mein termite ka masla hai, kya karte hain aap 
 
 We start with a structural assessment of roof beams and window frames, since many North Nazimabad homes still have their original 1950s-60s timber. For confirmed termite activity we use a soil injection plus bait station combination, backed by our 90-day guarantee. It is the same protocol we use on DHA Phase 1's 1960s bungalows.
 
-Kya Hyderi aur Sakhi Hassan mein same-day service milti hai?
+Kya Hyderi aur Sakhi Hassan mein usi din service milti hai?
 
 Same-day slots are kept for DHA, Clifton, PECHS, Bahadurabad and Saddar. Hyderi and Sakhi Hassan get the next available slot, confirmed on WhatsApp with the price fixed before the visit.
 
@@ -11751,7 +11751,7 @@ What is on the handover checklist?
 A written area by area list: what we cleaned, what we deliberately left out and why, and any damage or missing fitting we noticed, recorded as an observation. We walk it through and agree it with your site contact before we leave. It is a work record between SafaiKaro and you, not a certificate, an inspection result or an approval of the building.
 
 Which areas of Karachi do you cover for post construction cleaning?
-SafaiKaro takes handover and post renovation work across Karachi, subject to the site's location, size and handover date. Send the broad area on WhatsApp with the covered area and the handover date, and we confirm whether we can take the job before arranging a survey. We quote from photos or a walk through, so this is never a same day visit.
+SafaiKaro takes handover and post renovation work across Karachi, subject to the site's location, size and handover date. Send the broad area on WhatsApp with the covered area and the handover date, and we confirm whether we can take the job before arranging a survey. We quote from photos or a walk through, so a visit is always planned in advance.
 
 📱
 📱 WhatsApp for a quoteGet a quote
