@@ -118,6 +118,29 @@ var SAFAIKARO_PRICES = {
 })();
 
 /**
+ * Page class and segment for attribution (offices, restaurants, schools ... vs homes).
+ * The rules are kept in sync with the segment map; keep them identical (a test compares them).
+ * $1 means: take the segment from the first capture group (paid /l/<segment>-<angle> pages).
+ */
+/* segments:begin */
+var SK_SEGMENTS = [{"path_regex": "^/l/dengue-[a-z-]+$", "class": "residential", "segment": "mosquito"}, {"path_regex": "^/l/(.+)-[a-z]+$", "class": "commercial", "segment": "$1"}, {"path_regex": "^/commercial$", "class": "commercial", "segment": "hub"}, {"path_regex": "^/commercial-pest-control-pricing-karachi$", "class": "commercial", "segment": "pricing"}, {"path_regex": "^/restaurant-pest-control-karachi$", "class": "commercial", "segment": "restaurant"}, {"path_regex": "^/hotel-pest-control-karachi$", "class": "commercial", "segment": "hotel"}, {"path_regex": "^/clinic-hospital-pest-control-karachi$", "class": "commercial", "segment": "clinic"}, {"path_regex": "^/society-building-pest-control-karachi$", "class": "commercial", "segment": "building"}, {"path_regex": "^/warehouse-godown-pest-control-karachi$", "class": "commercial", "segment": "warehouse"}, {"path_regex": "^/office-fumigation-karachi$", "class": "commercial", "segment": "office"}, {"path_regex": "^/school-fumigation-service-karachi$", "class": "commercial", "segment": "school"}, {"path_regex": "^/pest-control-contract-karachi$", "class": "commercial", "segment": "contract"}, {"path_regex": "^/fumigation-certificate-karachi$", "class": "commercial", "segment": "certificate"}, {"path_regex": "^/(commercial-cleaning|commercial-kitchen-cleaning|office-cleaning-services|post-construction-cleaning)-karachi$", "class": "commercial", "segment": "cleaning"}, {"path_regex": "^/blog/commercial-cleaning-[a-z0-9-]+$", "class": "commercial", "segment": "cleaning"}, {"path_regex": "^/blog/([a-z0-9]+-)*(restaurants?|cafes?|bakery|hotels?|offices?|clinics?|hospitals?|schools?|warehouses?|godowns?|factory|factories|commercial|business|contracts?|amc)(-[a-z0-9]+)*$", "class": "commercial", "segment": "article"}, {"path_regex": "^/pest-control-korangi-industrial-area-karachi$", "class": "mixed", "segment": "industrial"}, {"path_regex": "^/apartment-fumigation-karachi$", "class": "mixed", "segment": "apartment"}, {"path_regex": "^/$", "class": "residential", "segment": "home"}, {"path_regex": "^/book$", "class": "residential", "segment": "booking"}, {"path_regex": "^/pest-control-price-list-karachi$", "class": "residential", "segment": "pricing"}, {"path_regex": "^/pest-control-karachi-areas$", "class": "residential", "segment": "areas"}, {"path_regex": "^/pest-control-[a-z0-9-]+-karachi$", "class": "residential", "segment": "area"}, {"path_regex": "^/(fumigation-services|annual-pest-control|termite-treatment|termite-treatment-new-construction|mosquito-dengue-control|cockroach-control|rodent-control|bed-bug-treatment|bee-wasp-removal|ant-control|lizard-control)-karachi$", "class": "residential", "segment": "service"}, {"path_regex": "^/blog$", "class": "residential", "segment": "blog"}, {"path_regex": "^/blog/[a-z0-9-]+$", "class": "residential", "segment": "blog"}];
+/* segments:end */
+function skNormalize(p) {
+  p = String(p || '/').split('#')[0].split('?')[0].replace(/^https?:\/\/[^\/]+/, '');
+  p = p.replace(/\.html$/, '').replace(/\/index$/, '/');
+  if (p.length > 1) p = p.replace(/\/+$/, '');
+  return p || '/';
+}
+function skClassify(path) {
+  var p = skNormalize(path);
+  for (var i = 0; i < SK_SEGMENTS.length; i++) {
+    var r = SK_SEGMENTS[i], m = new RegExp(r.path_regex).exec(p);
+    if (m) return [r['class'], r.segment === '$1' ? (m[1] || '') : r.segment];
+  }
+  return ['unclassified', ''];
+}
+
+/**
  * Conversion tracking via PostHog (initialised on every page).
  * One delegated, capture-phase click listener records WhatsApp / Book / Call
  * intent across the whole site — no per-link wiring needed.
@@ -130,7 +153,8 @@ var SAFAIKARO_PRICES = {
  * delivered even as the page unloads. No preventDefault — the link is never
  * blocked, so a tracking failure can never break a CTA.
  *
- * Events: whatsapp_click, book_click, call_click
+ * Events: whatsapp_click, book_click, call_click, email_click (mailto:, a lead event), share_click (data-share or wa.me/?text=, not a lead)
+ * Every event carries page_class, page_segment, entry_class, entry_segment (spec: segments map above).
  *   { path, text, href, cta, section, prefill, ref }
  *
  * cta = WHERE the click happened, derived from the DOM at click time so no
@@ -149,15 +173,24 @@ var SAFAIKARO_PRICES = {
  *   nav_menu_open { path }         .hamburger
  */
 /**
- * Footer WhatsApp prefill. The shared footer on every page links wa.me with no
- * message, so footer taps reach the inbox blank and nobody can tell what the
- * person wanted. Instead of editing fifty footers, the footer link gets a
- * prefill naming this page's service at load time, from the path. Explicit
- * ?text= on a footer link is left alone. The delegated listener below reads the
- * prefill off the href at click time, so the event carries it too.
+ * Footer WhatsApp prefill (the shared footer links wa.me with no message, so footer taps used to arrive blank).
+ * The footer link gets a prefill from the page path at load time; an explicit ?text= is left alone. Commercial
+ * pages run first and lead with the segment noun and "site survey" (the survey costs Rs 1,000; never call it
+ * free), then area pages, then services. No codes in the customer's message (founder ruling); paid /l/ pages
+ * keep their own Ref. The delegated listener below reads the prefill off the href at click time.
  */
-(function () {
-  if (typeof document === 'undefined') return;
+var SK_PREFILL = (function () {
+  var COMMERCIAL_BY_PATH = [
+    [/restaurant|cafe|bakery|cloud-kitchen/, 'restaurant', 'pest control for my restaurant'],
+    [/hotel/, 'hotel', 'pest control for my hotel'],
+    [/clinic|hospital/, 'clinic', 'pest control for my clinic'],
+    [/office-fumigation/, 'office', 'pest control for my office'],
+    [/school-fumigation/, 'school', 'pest control for my school'],
+    [/warehouse|godown|korangi-industrial/, 'factory or godown', 'pest control for my factory or godown'],
+    [/society-building/, 'building', 'pest control for our building'],
+    [/pest-control-contract/, 'contract', 'a pest control contract for my business'],
+    [/commercial-pest-control-pricing|^\/commercial$/, 'business', 'pest control for my business']
+  ];
   var SERVICE_BY_PATH = [
     [/fumigation-certificate/, 'a fumigation certificate for my premises'],
     [/fumigation-services|apartment-fumigation|school-fumigation|office-fumigation|fumigation-kya-hoti-hai|fumigation-vs-pest-control|fumigation-bachon|ghar-ko-fumigation|fumigation-machine/, 'general fumigation'],
@@ -185,6 +218,9 @@ var SAFAIKARO_PRICES = {
     }).join(' ').replace(/ E /g, '-e-');
   }
   function messageFor(path) {
+    for (var c = 0; c < COMMERCIAL_BY_PATH.length; c++) {
+      if (COMMERCIAL_BY_PATH[c][0].test(path)) return 'Hi SafaiKaro, ' + COMMERCIAL_BY_PATH[c][1] + ' site survey: I need ' + COMMERCIAL_BY_PATH[c][2] + ' in Karachi.';
+    }
     var area = areaOf(path);
     if (area) return 'Hi SafaiKaro, I need pest control in ' + area + (/Karachi$/.test(area) ? '.' : ', Karachi.');
     for (var i = 0; i < SERVICE_BY_PATH.length; i++) {
@@ -192,13 +228,18 @@ var SAFAIKARO_PRICES = {
     }
     return 'Hi SafaiKaro, I need pest control in Karachi.';
   }
+  return { messageFor: messageFor };
+})();
+
+(function () {
+  if (typeof document === 'undefined') return;
   function prefillFooter() {
     var path = location.pathname.replace(/\.html$/, '');
     var links = document.querySelectorAll('footer a[href*="wa.me"]');
     for (var i = 0; i < links.length; i++) {
       var href = links[i].getAttribute('href') || '';
       if (/[?&]text=/.test(href)) continue;
-      var text = messageFor(path);
+      var text = SK_PREFILL.messageFor(path);
       links[i].setAttribute('href', href.split('#')[0] + (href.indexOf('?') === -1 ? '?' : '&') + 'text=' + encodeURIComponent(text));
     }
   }
@@ -209,9 +250,33 @@ var SAFAIKARO_PRICES = {
 (function () {
   if (typeof document === 'undefined') return;
 
+  // First page of the session, kept in sessionStorage so a /book handoff keeps its commercial origin.
+  function entryOf() {
+    try {
+      var v = sessionStorage.getItem('sk_entry');
+      if (v) {
+        var o = JSON.parse(v);
+        if (o && o.c) return o;
+      }
+      var c = skClassify(location.pathname);
+      var e = { c: c[0], s: c[1] };
+      sessionStorage.setItem('sk_entry', JSON.stringify(e));
+      return e;
+    } catch (_) {
+      var k = skClassify(location.pathname);
+      return { c: k[0], s: k[1] };
+    }
+  }
+  var ENTRY = entryOf();
+
   function ph(event, props, urgent) {
     if (!window.posthog || typeof posthog.capture !== 'function') return;
     props.path = location.pathname;
+    var pc = skClassify(location.pathname);
+    props.page_class = pc[0];
+    props.page_segment = pc[1];
+    props.entry_class = ENTRY.c;
+    props.entry_segment = ENTRY.s;
     try {
       posthog.capture(event, props, urgent ? { transport: 'sendBeacon', send_instantly: true } : undefined);
     } catch (_) {
@@ -307,6 +372,12 @@ var SAFAIKARO_PRICES = {
     if (a) {
       var href = a.getAttribute('href') || '';
       var lower = href.toLowerCase();
+      // "Forward to your owner" share links (data-share, or wa.me with no number) open the visitor's own contacts.
+      // Counted as share_click, never as a lead, and checked before the WhatsApp lead branch.
+      if (a.hasAttribute('data-share') || /wa\.me\/\?text=/i.test(href)) {
+        ph('share_click', { cta: placementOf(a), section: sectionOf(a), href: href.split('?')[0] }, true);
+        return;
+      }
       var event = null;
       var ref = '';
       if (lower.indexOf('wa.me') !== -1 || lower.indexOf('whatsapp') !== -1) {
@@ -324,6 +395,9 @@ var SAFAIKARO_PRICES = {
         watchUnconfirmedOpen(placementOf(a));
       } else if (lower.indexOf('tel:') === 0) {
         event = 'call_click';
+      } else if (lower.indexOf('mailto:') === 0) {
+        // Procurement buyers email RFQs; a lead event like a call. The query string (subject, body) is dropped.
+        event = 'email_click';
       } else if (href === '/book' || href.indexOf('/book') === 0 || /\/book(\/|\?|#|$)/.test(href)) {
         // matches /book, /book/, /book?..., and absolute https://safaikaro.pk/book
         event = 'book_click';
@@ -334,7 +408,7 @@ var SAFAIKARO_PRICES = {
       var privateCTA = a.getAttribute('data-private-cta') === 'true';
       ph(event, {
         text: ((a.textContent || '').trim() || a.getAttribute('aria-label') || '').slice(0, 60),
-        href: privateCTA ? href.split('?')[0] : href,
+        href: (privateCTA || event === 'email_click') ? href.split('?')[0] : href,
         cta: placementOf(a),
         section: sectionOf(a),
         prefill: event === 'whatsapp_click' && !privateCTA ? prefillOf(href) : '',
