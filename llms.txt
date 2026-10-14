@@ -16,7 +16,7 @@ SafaiKaro (website: https://safaikaro.pk) is a pest control company for business
 
 ## Services & Pricing
 
-Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301-500 / 501-1,000. "n/a" means that service is not offered at that tier.
+Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301-500 / 501-1,000. Mosquito control and Annual Shield use one tier for 201-500 sq yd.
 
 | Service | Up to 100 | 101-200 | 201-300 | 301-500 | 501-1,000 |
 |---|---|---|---|---|---|
@@ -24,8 +24,8 @@ Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301
 | Termite treatment (post-construction, 90-day guarantee) | Rs 13,000 | Rs 17,000 | Rs 20,000 | Rs 27,000 | Rs 37,000 |
 | Bed bug treatment (both sessions included) | Rs 11,000 | Rs 14,000 | Rs 17,000 | Rs 23,000 | Rs 29,000 |
 | Rodent control (2 visits included) | Rs 13,000 | Rs 16,000 | Rs 18,000 | Rs 21,000 | Rs 29,000 |
-| Mosquito control | Rs 6,000 | Rs 8,000 | n/a | Rs 12,000 | Rs 18,000 |
-| Annual Shield (4 visits + 1 emergency callout) | Rs 18,000/yr | Rs 24,000/yr | n/a | Rs 40,000/yr | Rs 65,000/yr |
+| Mosquito control | Rs 6,000 | Rs 8,000 | Rs 12,000 (one 201-500 tier) | Rs 12,000 (one 201-500 tier) | Rs 18,000 |
+| Annual Shield (4 visits + 1 emergency callout) | Rs 18,000/yr | Rs 24,000/yr | Rs 40,000/yr (one 201-500 tier) | Rs 40,000/yr (one 201-500 tier) | Rs 65,000/yr |
 
 All prices include labor, equipment, and treatment chemicals. Balance paid to technician on the day. Zero hidden charges.
 
@@ -103,7 +103,7 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 - [Pest Control Federal B Area Karachi | Rs 7,000](https://safaikaro.pk/pest-control-federal-b-area-gulberg-karachi)
 - [Pest Control Gulshan-e-Iqbal Karachi | From Rs 7,000](https://safaikaro.pk/pest-control-gulshan-e-iqbal-karachi)
 - [Pest Control Gulshan-e-Maymar Karachi | Rs 7,000+](https://safaikaro.pk/pest-control-gulshan-e-maymar-karachi)
-- [Pest Control Korangi Industrial Area | Rs 7,000+](https://safaikaro.pk/pest-control-korangi-industrial-area-karachi)
+- [Korangi Pest Control | Homes Rs 7,000+, Godowns by Survey](https://safaikaro.pk/pest-control-korangi-industrial-area-karachi)
 - [Pest Control Malir Karachi | From Rs 7,000 | SafaiKaro](https://safaikaro.pk/pest-control-malir-karachi)
 - [Pest Control Nazimabad Karachi | 90-Day Guarantee](https://safaikaro.pk/pest-control-nazimabad-karachi)
 - [Pest Control North Karachi | From Rs 7,000 | SafaiKaro](https://safaikaro.pk/pest-control-north-karachi)

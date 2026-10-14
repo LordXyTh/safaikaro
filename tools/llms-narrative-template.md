@@ -16,7 +16,7 @@ SafaiKaro (website: https://safaikaro.pk) is a pest control company for business
 
 ## Services & Pricing
 
-Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301-500 / 501-1,000. "n/a" means that service is not offered at that tier.
+Prices are tiered by property size (sq yds): up to 100 / 101-200 / 201-300 / 301-500 / 501-1,000. Mosquito control and Annual Shield use one tier for 201-500 sq yd.
 
 {{PRICE_TABLE}}
 

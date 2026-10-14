@@ -244,8 +244,13 @@ def build_price_table(prices: dict[str, int]) -> str:
         cells = []
         for tier in tiers:
             key = f"{prefix}-{tier}"
+            # A service with no -ml key prices 201-500 sq yd as one tier (the -l key):
+            # show that one value under both the 201-300 and 301-500 columns.
+            one_tier = f"{prefix}-ml" not in prices and tier in ("ml", "l")
+            if one_tier:
+                key = f"{prefix}-l"
             if key in prices:
-                cells.append(fmt_price(prices[key]) + suffix)
+                cells.append(fmt_price(prices[key]) + suffix + (" (one 201-500 tier)" if one_tier else ""))
             else:
                 cells.append("n/a")
         rows.append(f"| {label} | " + " | ".join(cells) + " |")
