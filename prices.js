@@ -71,6 +71,28 @@ var SAFAIKARO_PRICES = {
     return 'Rs ' + amount.toLocaleString('en-PK');
   }
 
+  // Annual Shield saving = what 4 separate quarterly fumigation visits would cost
+  // minus the annual plan, for the same property size. Annual Shield has no 201-300
+  // tier of its own (annual-l covers 201-500), so 201-300 compares against annual-l.
+  var ANNUAL_VISITS = 4;
+  var SAVING_TIERS = ['s', 'm', 'ml', 'l', 'xl'];
+  function annualSaving(tier) {
+    var annual = SAFAIKARO_PRICES['annual-' + tier];
+    if (annual === undefined && tier === 'ml') annual = SAFAIKARO_PRICES['annual-l'];
+    var visit = SAFAIKARO_PRICES['fumigation-' + tier];
+    if (annual === undefined || visit === undefined) return null;
+    return ANNUAL_VISITS * visit - annual;
+  }
+  function maxAnnualSaving() {
+    var best = null;
+    for (var t = 0; t < SAVING_TIERS.length; t++) {
+      var v = annualSaving(SAVING_TIERS[t]);
+      if (v !== null && (best === null || v > best)) best = v;
+    }
+    return best;
+  }
+  window.SAFAIKARO_SAVING = function(tier) { return tier === 'max' ? maxAnnualSaving() : annualSaving(tier); };
+
   function populatePrices() {
     // Update all [data-price] elements
     var els = document.querySelectorAll('[data-price]');
@@ -79,6 +101,14 @@ var SAFAIKARO_PRICES = {
       if (SAFAIKARO_PRICES[key] !== undefined) {
         els[i].textContent = formatPrice(SAFAIKARO_PRICES[key]);
       }
+    }
+
+    // Update all [data-saving] elements: data-saving="annual-m" or "annual-max"
+    var sav = document.querySelectorAll('[data-saving]');
+    for (var k = 0; k < sav.length; k++) {
+      var tier = sav[k].getAttribute('data-saving').replace(/^annual-/, '');
+      var amount = window.SAFAIKARO_SAVING(tier);
+      if (amount !== null) sav[k].textContent = formatPrice(amount);
     }
 
     // Update JSON-LD schema prices if present

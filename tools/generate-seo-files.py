@@ -236,6 +236,17 @@ def fmt_price(amount: int) -> str:
     return f"Rs {amount:,}"
 
 
+def max_annual_saving(prices: dict[str, int]) -> int:
+    """Largest saving of Annual Shield vs 4 separate fumigation visits (same rule as prices.js)."""
+    best = 0
+    for tier in ("s", "m", "ml", "l", "xl"):
+        annual = prices.get(f"annual-{tier}", prices.get("annual-l") if tier == "ml" else None)
+        visit = prices.get(f"fumigation-{tier}")
+        if annual is not None and visit is not None:
+            best = max(best, 4 * visit - annual)
+    return best
+
+
 def build_price_table(prices: dict[str, int]) -> str:
     header = "| Service | " + " | ".join(TIER_HEADERS) + " |"
     sep = "|---" * (len(TIER_HEADERS) + 1) + "|"
@@ -462,6 +473,7 @@ def build_llms_txt(pages: list[Page], prices: dict[str, int]) -> str:
     template = (ROOT / "tools" / "llms-narrative-template.md").read_text(encoding="utf-8")
     content = template
     content = content.replace("{{PRICE_TABLE}}", build_price_table(prices))
+    content = content.replace("{{ANNUAL_MAX_SAVING}}", fmt_price(max_annual_saving(prices)))
     content = content.replace("{{SERVICE_AREAS}}", build_service_areas_md())
     content = content.replace("{{PAGES}}", build_pages_md(pages))
     content = content.replace("{{BLOG_POSTS}}", build_blog_md(pages))

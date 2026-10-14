@@ -602,7 +602,7 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
           <strong>Price confirmed before we start. Zero hidden charges. Balance paid to technician on the day.</strong>
         </div>
         <p class="text-center text-sm text-muted mt-2">Not sure of your property size? <a href="https://wa.me/923308652035?text=Hi%20SafaiKaro%2C%20I%20need%20help%20with%20my%20property%20size" style="font-weight:600;">WhatsApp us</a> &mdash; we will confirm during booking.</p>
-        <p class="text-center text-sm text-muted mt-2">Annual Shield saves you up to Rs 24,000. <a href="/annual-pest-control-karachi" style="font-weight:600;">Compare the Annual Shield plan &rarr;</a></p>
+        <p class="text-center text-sm text-muted mt-2">Annual Shield saves you up to <span data-saving="annual-max">Rs 24,000</span>. <a href="/annual-pest-control-karachi" style="font-weight:600;">Compare the Annual Shield plan &rarr;</a></p>
         <p class="text-center text-sm text-muted mt-2">Live in a flat? These size tiers apply to a single flat too. For the stairwells, ducts, roof and basement of a whole apartment building, see <a href="/apartment-fumigation-karachi" style="font-weight:600;">apartment fumigation in Karachi</a>.</p>
         <p class="text-center text-sm text-muted mt-2">Running a commercial space or office? See our <a href="/commercial" style="font-weight:600;">commercial pest control</a>, <a href="/pest-control-contract-karachi" style="font-weight:600;">pest control contracts for businesses</a> and <a href="/fumigation-certificate-karachi" style="font-weight:600;">fumigation certificate service</a>. Bed bug problem? Read the <a href="/blog/khatmal-ka-ilaj-karachi" style="font-weight:600;">khatmal ka ilaj guide</a>.</p>
         <p class="text-center text-sm text-muted mt-2">Want the fumigation services price in Karachi broken down on its own, with process and safety details? See our dedicated <a href="/fumigation-services-karachi" style="font-weight:600;">fumigation services in Karachi</a> page.</p>
@@ -939,14 +939,23 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
           period: '/year',
           priceKeys: {s:'annual-s',m:'annual-m',ml:'annual-l',l:'annual-l',xl:'annual-xl'},
           details: {
-            s:'4 quarterly visits + 1 emergency callout. Save Rs 10,000 vs booking separately.',
-            m:'4 quarterly visits + 1 emergency callout. Save Rs 20,000 vs booking separately.',
-            ml:'4 quarterly visits + 1 emergency callout. Save Rs 12,000 vs booking separately.',
-            l:'4 quarterly visits + 1 emergency callout. Save Rs 24,000 vs booking separately.',
-            xl:'4 quarterly visits + 1 emergency callout. Save Rs 15,000 vs booking separately.'
+            s:annualNote('s', 10000),
+            m:annualNote('m', 20000),
+            ml:annualNote('ml', 12000),
+            l:annualNote('l', 24000),
+            xl:annualNote('xl', 15000)
           }
         }
       };
+
+      // Saving vs 4 separate fumigation visits, computed in prices.js; the number is only a fallback.
+      function annualSaving(tier, fallback) {
+        var v = window.SAFAIKARO_SAVING ? SAFAIKARO_SAVING(tier) : null;
+        return v === null || v === undefined ? fallback : v;
+      }
+      function annualNote(tier, fallback) {
+        return '4 quarterly visits + 1 emergency callout. Save Rs ' + annualSaving(tier, fallback).toLocaleString('en-PK') + ' vs booking separately.';
+      }
 
       function formatPrice(value) {
         return 'Rs ' + value.toLocaleString('en-PK');
@@ -1091,7 +1100,9 @@ posthog.init('phc_xwbyY2msrjU6e5VlZal3FFqJ6p51D9ciEX4dxSqHXRb',{api_host:'https:
           break;
         case 'annual':
           price = [18000, 24000, 40000, 40000, 65000][tier];
-          var saves = [10000, 20000, 12000, 24000, 15000][tier];
+          // Saving vs 4 separate fumigation visits, computed in prices.js; the number is only a fallback.
+          var saves = window.SAFAIKARO_SAVING ? SAFAIKARO_SAVING(['s', 'm', 'ml', 'l', 'xl'][tier]) : null;
+          if (saves === null || saves === undefined) saves = [10000, 20000, 12000, 24000, 15000][tier];
           note = '4 quarterly visits + 1 emergency callout. Save Rs ' + saves.toLocaleString() + ' vs booking separately.';
           break;
       }
