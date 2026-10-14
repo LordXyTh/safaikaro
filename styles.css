@@ -408,6 +408,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Every page: the two-column hero collapses to one column on phones so the
+   H1 and first CTA use the full width (it used to collapse only under
+   .home-page, leaving the H1 ~120px wide on area pages). The .home-page rules
+   below are more specific and keep the homepage exactly as it was. */
+@media (max-width: 767px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-content {
+    padding: 40px 20px 48px;
+  }
+  .hero-image {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .home-page .hero {
     grid-template-columns: 1fr;

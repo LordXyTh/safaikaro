@@ -59,6 +59,9 @@ var SAFAIKARO_PRICES = {
   'annual-l':  40000,
   'annual-xl': 65000,
 
+  // Site survey (fixed fee for the visit; a written quote follows. Not free, not adjusted against the job)
+  'site-survey': 1000,  // Rs 1,000 always
+
   // Deposit
   'deposit': 500
 };
