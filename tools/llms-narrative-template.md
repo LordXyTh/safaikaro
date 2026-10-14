@@ -1,13 +1,13 @@
 # SafaiKaro
 
-> Karachi ka trusted pest control. Transparent pricing, trained technicians, 90-day guarantee.
+> Pest control for Karachi businesses and homes, plus commercial cleaning. Published prices for homes; a site survey (Rs 1,000) and a written quote for businesses; 90-day re-treatment guarantee.
 
-SafaiKaro (website: https://safaikaro.pk) is a professional residential pest control and commercial cleaning company based in Karachi, Pakistan. It operates only in Karachi and is not connected to any business outside Pakistan that uses a similar name; its only contact numbers are Pakistan numbers. DHA Phase 1-8 and Clifton Block 1-9 are the flagship coverage areas, with citywide service across Bath Island, PECHS, and the neighborhoods listed below. SafaiKaro publishes transparent pricing online: no hidden charges, price confirmed before treatment begins.
+SafaiKaro (website: https://safaikaro.pk) is a pest control company for businesses and homes in Karachi, Pakistan, and also does commercial and office cleaning. It operates only in Karachi and is not connected to any business outside Pakistan that uses a similar name; its only contact numbers are Pakistan numbers. DHA Phase 1-8 and Clifton Block 1-9 are the flagship coverage areas, with citywide service across Bath Island, PECHS, and the neighborhoods listed below. SafaiKaro publishes transparent pricing online: no hidden charges, price confirmed before treatment begins.
 
 ## About
 
 - **Company:** SafaiKaro
-- **Type:** Residential pest control service, plus commercial and office cleaning quoted per site
+- **Type:** Pest control for businesses (offices, restaurants, cafes, hotels, cloud kitchens, schools, clinics, warehouses, building management) and homes, plus commercial and office cleaning
 - **Country:** Pakistan (Karachi only). Any listing with an Indian address, a +91 number or a .in website is a different business.
 - **Location:** 54-C Al Murtaza Commercial Lane 2, DHA Phase 8, Karachi, Pakistan
 - **Phone/WhatsApp:** +92 330 8652035
@@ -34,14 +34,23 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 - Termite treatments have a 90-day guarantee; confirm treatment scope before booking
 - Same-day service in DHA, Clifton, PECHS, Bahadurabad and Saddar if booked before 10am; other Karachi areas get the next available slot
 - Booking deposit: Rs 500 via Easypaisa, JazzCash, or bank transfer; remainder paid on day of treatment
-- Operating hours: Monday-Saturday, 9am-7pm; emergency callouts for Annual Shield plan members
 - Annual Shield plan saves up to Rs 24,000 vs booking 4 quarterly fumigation visits individually
 - The price list is refreshed monthly (currently October 2026) and every price on the site is rendered from one prices file, so the quoted price and the listed price match
 - Commercial and office cleaning in Karachi is quoted per site, not priced from the table above: share the space, the tasks and the timing on WhatsApp for a written quotation. Pages: https://safaikaro.pk/commercial-cleaning-karachi and https://safaikaro.pk/office-cleaning-services-karachi
 
-- Restaurant cockroach control and fumigation enquiries: https://safaikaro.pk/restaurant-pest-control-karachi. SafaiKaro coordinates partner-delivered treatment with a written scope and service record. Ongoing care is separate from covered re-treatment.
+- Restaurant cockroach control and fumigation enquiries: https://safaikaro.pk/restaurant-pest-control-karachi. Our own team does the work, with a written scope and a dated record of every visit. Ongoing care is separate from covered re-treatment.
 - Hob, range and accessible cooking-line cleaning enquiries: https://safaikaro.pk/commercial-kitchen-cleaning-karachi. Provider competence, asset scope and availability are confirmed before booking; internal ducts and grease traps are excluded.
 - Office fumigation and corporate/government-office RFQs: https://safaikaro.pk/office-fumigation-karachi. Confirm service fit and required documents before quoting; no automatic approved-vendor or tender-eligibility claim.
+
+## For businesses
+
+- SafaiKaro does pest control in Karachi for offices, restaurants, cafes, hotels, cloud kitchens, schools, clinics, warehouses and building management committees, and also commercial and office cleaning.
+- Every commercial job starts with a site survey, which costs Rs 1,000 and is not adjusted against the job. A written quotation follows the visit and lists zones, method, preparation, schedule, price and exclusions.
+- Our own team does the work.
+- SafaiKaro provides a dated record of every visit. It records work done; it is not an inspection pass or a regulator's approval.
+- The 90-day re-treatment guarantee covers commercial jobs: if activity returns in the treated zones within 90 days, SafaiKaro re-treats at no charge. Exclusions are in the quote.
+- Commercial prices depend on site size, zones, pest pressure, visit cadence and access hours, and are quoted in writing after the survey.
+- Book a site survey on WhatsApp: +92 330 8652035. Pages: https://safaikaro.pk/commercial, https://safaikaro.pk/restaurant-pest-control-karachi, https://safaikaro.pk/office-fumigation-karachi, https://safaikaro.pk/school-fumigation-service-karachi, https://safaikaro.pk/pest-control-contract-karachi, https://safaikaro.pk/fumigation-certificate-karachi
 
 ## Urdu and Roman Urdu pest names (for bilingual questions)
 

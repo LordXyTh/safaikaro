@@ -141,6 +141,7 @@
     if (!a) return;
     var href = a.getAttribute('href') || '';
     if (href.toLowerCase().indexOf('wa.me') === -1) return;
+    if (a.hasAttribute('data-share') || /wa\.me\/\?text=/i.test(href)) return; // share links go to the visitor's own contacts
     if (a.classList.contains('wa-desk-web')) return; // the card's own escape hatch
     e.preventDefault();
     web.href = href;
