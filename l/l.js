@@ -8,7 +8,7 @@
  */
 (function () {
   var META_PIXEL_ID = "REPLACE_ME"; // set once Task 3 reports the pixel id
-  var WA = "https://wa.me/923308652035";
+  var WA = "https://wa.me/923362304666";
   var body = document.body;
   var segment = body.getAttribute("data-segment") || "unknown";
   var letter = body.getAttribute("data-segment-letter") || "X";

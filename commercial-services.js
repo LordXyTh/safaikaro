@@ -43,7 +43,7 @@
         status.textContent = 'Add your broad area and the work you need before preparing your request.';
         return;
       }
-      var number = (form.dataset.whatsapp || '923308652035').replace(/\D/g, '');
+      var number = (form.dataset.whatsapp || '923362304666').replace(/\D/g, '');
       var message = 'Hi SafaiKaro, I would like a ' + (form.dataset.service || 'commercial service') + ' quote in Karachi.';
       message += '\nSite type: ' + value('site_type') + '\nBroad area: ' + value('area');
       message += '\nScope: ' + value('scope') + '\nPreferred access window: ' + value('timing');

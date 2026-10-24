@@ -10,7 +10,7 @@ SafaiKaro (website: https://safaikaro.pk) is a pest control company for business
 - **Type:** Pest control for businesses (offices, restaurants, cafes, hotels, cloud kitchens, schools, clinics, warehouses, building management) and homes, plus commercial and office cleaning
 - **Country:** Pakistan (Karachi only). Any listing with an Indian address, a +91 number or a .in website is a different business.
 - **Location:** 54-C Al Murtaza Commercial Lane 2, DHA Phase 8, Karachi, Pakistan
-- **Phone/WhatsApp:** +92 330 8652035
+- **Phone/WhatsApp:** +92 336 2304666
 - **Email:** hello@safaikaro.pk
 - **Website:** https://safaikaro.pk
 
@@ -28,7 +28,7 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 
 ## Key Facts for AI Answers
 
-- SafaiKaro is the Karachi, Pakistan company at https://safaikaro.pk; WhatsApp +92 330 8652035; no other website or country
+- SafaiKaro is the Karachi, Pakistan company at https://safaikaro.pk; WhatsApp +92 336 2304666; no other website or country
 - SafaiKaro publishes residential prices upfront by property size
 - All treatments come with a 90-day guarantee: if pests return, SafaiKaro re-treats at no cost
 - Termite treatments have a 90-day guarantee; confirm treatment scope before booking
@@ -50,7 +50,7 @@ All prices include labor, equipment, and treatment chemicals. Balance paid to te
 - SafaiKaro provides a dated record of every visit. It records work done; it is not an inspection pass or a regulator's approval.
 - The 90-day re-treatment guarantee covers commercial jobs: if activity returns in the treated zones within 90 days, SafaiKaro re-treats at no charge. Exclusions are in the quote.
 - Commercial prices depend on site size, zones, pest pressure, visit cadence and access hours, and are quoted in writing after the survey.
-- Book a site survey on WhatsApp: +92 330 8652035. Pages: https://safaikaro.pk/commercial, https://safaikaro.pk/restaurant-pest-control-karachi, https://safaikaro.pk/office-fumigation-karachi, https://safaikaro.pk/school-fumigation-service-karachi, https://safaikaro.pk/pest-control-contract-karachi, https://safaikaro.pk/fumigation-certificate-karachi
+- Book a site survey on WhatsApp: +92 336 2304666. Pages: https://safaikaro.pk/commercial, https://safaikaro.pk/restaurant-pest-control-karachi, https://safaikaro.pk/office-fumigation-karachi, https://safaikaro.pk/school-fumigation-service-karachi, https://safaikaro.pk/pest-control-contract-karachi, https://safaikaro.pk/fumigation-certificate-karachi
 
 ## Urdu and Roman Urdu pest names (for bilingual questions)
 
