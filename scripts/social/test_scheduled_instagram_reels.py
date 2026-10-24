@@ -113,13 +113,13 @@ class ScheduledReelTests(unittest.TestCase):
             "video_url": "https://cdn.example/mithai.mp4",
             "video_path": str(media_path),
             "sha256": digest,
-            "caption": "Mithai mehmaanon ke liye thi.\nWhatsApp: https://wa.me/923308652035",
+            "caption": "Mithai mehmaanon ke liye thi.\nWhatsApp: https://wa.me/923362304666",
             "native_audio": {"id": "1759672808494145", "audio_volume": 80, "video_volume": 20},
             **job_changes,
         }
         return {"authorized": True, "instagram_username": "safaikaro.pk", "jobs": [job]}
 
-    def facebook_block(self, directory, caption="Deemak ka raasta.\nWhatsApp: https://wa.me/923308652035"):
+    def facebook_block(self, directory, caption="Deemak ka raasta.\nWhatsApp: https://wa.me/923362304666"):
         path = Path(directory) / "facebook-master.mp4"
         path.write_bytes(b"facebook-video")
         return {"video_path": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "caption": caption}

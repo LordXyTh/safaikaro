@@ -11,8 +11,8 @@
   if (typeof document === 'undefined' || typeof window === 'undefined') return;
   if (!window.matchMedia || !matchMedia('(min-width: 1024px) and (pointer: fine)').matches) return;
 
-  var PHONE_DISPLAY = '0330 8652035';
-  var PHONE_COPY = '+92 330 8652035';
+  var PHONE_DISPLAY = '0336 2304666';
+  var PHONE_COPY = '+92 336 2304666';
   var previousFocus = null;
   var activeSource = null;
 
@@ -75,7 +75,7 @@
   var web = document.createElement('a');
   web.className = 'wa-desk-web';
   web.setAttribute('data-cta', 'desktop-card');
-  web.href = 'https://wa.me/923308652035';
+  web.href = 'https://wa.me/923362304666';
   web.target = '_blank';
   web.rel = 'noopener';
   web.textContent = 'Continue with your details in WhatsApp Web →';
@@ -110,7 +110,7 @@
   function closeCard() {
     card.classList.remove('open');
     card.setAttribute('aria-hidden', 'true');
-    web.href = 'https://wa.me/923308652035';
+    web.href = 'https://wa.me/923362304666';
     activeSource = null;
     if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
   }
